@@ -63,6 +63,12 @@ module.exports = function(options) {
       .pipe($.size({ title: options.dist + '/', showFiles: true }));
   });
 
+  // single pages, such as: register page
+  gulp.task('pages', function () {
+    return gulp.src(options.src + '/pages/**/*.html')
+      .pipe(gulp.dest(options.dist + '/pages/'));
+  });
+
   // Only applies for fonts from bower dependencies
   // Custom fonts are handled by the "other" task
   gulp.task('fonts', function () {
@@ -84,5 +90,5 @@ module.exports = function(options) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'other']);
+  gulp.task('build', ['html', 'pages', 'fonts', 'other']);
 };
