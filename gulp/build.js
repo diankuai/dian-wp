@@ -65,7 +65,7 @@ module.exports = function(options) {
 
   // single pages, such as: register page
   gulp.task('pages', function () {
-    return gulp.src(options.src + '/pages/**/*.html')
+    return gulp.src(options.src + '/pages/**/*')
       .pipe(gulp.dest(options.dist + '/pages/'));
   });
 
