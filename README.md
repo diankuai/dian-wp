@@ -1,6 +1,11 @@
 # dian-wp
 点快-微信端
 
+# Wiki
+
+[Wiki](https://github.com/diankuai/dian-wp/wiki)
+
+
 # 开发环境准备
 
 ```
