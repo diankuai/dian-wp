@@ -25,53 +25,6 @@ footer {
   right: 0;
 }
 
-.navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  background-color: #222;
-
-  &>a {
-    float: left;
-    color: lightgrey;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-    height: 50px;
-  }
-
-  ul {
-    float: left;
-    padding: 0;
-    margin: 0;
-
-    li {
-      float: left;
-      position: relative;
-      display: block;
-
-      a {
-        color: white;
-        position: relative;
-        display: block;
-        padding: 15px;
-        line-height: 20px;
-      }
-      &.active a {
-        background-color: black;
-      }
-    }
-  }
-}
-
-.jumbotron {
-  padding: 60px;
-  margin-bottom: 30px;
-  background-color: gainsboro;
-  border-radius: 6px;
-  text-align: center;
-}
-
 .btn {
   display: inline-block;
   text-align: center;
@@ -87,30 +40,6 @@ footer {
   border-radius: 6px;
 }
 
-.col {
-  float: left;
-  width: 33.33%;
-  position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
-  box-sizing: border-box;
-
-  .thumbnail {
-    height: 200px;
-    border: 1px solid lightgrey;
-    border-radius: 4px;
-    margin-bottom: 20px;
-
-    .caption {
-      padding: 9px;
-    }
-
-    img.pull-right {
-      width: 50px;
-    }
-  }
-}
-
 .pull-right {
   float: right;
 }
@@ -121,6 +50,10 @@ footer {
 
 hr {
   clear: both;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
