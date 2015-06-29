@@ -4,7 +4,8 @@ body {
   font-size: 16px;
 }
 
-ul {
+ul, ol {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -35,11 +36,14 @@ footer {
   background-color: #5cb85c;
   border-color: #4cae4c;
   padding: 10px 16px;
-  font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
 }
 
+//utils begin
+.text-center {
+  text-align: center!important;
+}
 .pull-right {
   float: right;
 }
@@ -47,6 +51,7 @@ footer {
 .pull-left {
   float: left;
 }
+//utils end
 
 hr {
   clear: both;
