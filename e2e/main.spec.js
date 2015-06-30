@@ -1,6 +1,7 @@
 'use strict';
 
 describe('The main view', function () {
+  /*
   var page;
 
   beforeEach(function () {
@@ -17,5 +18,6 @@ describe('The main view', function () {
   it('list more than 5 awesome things', function () {
     expect(page.thumbnailEls.count()).toBeGreaterThan(5);
   });
+  */
 
 });
