@@ -21,6 +21,8 @@ angular.module('dian')
     console.log($routeParams);
   }])
 
-  .controller('MenuOrdersHistoryCtrl', [function() {
-
+  .controller('MenuOrdersHistoryCtrl', ['$http', '$scope', function($http, $scope) {
+    $http.get('/wp/trade/list-order/').then(function(res) {
+      $scope.orders = res.data;
+    });
   }]);

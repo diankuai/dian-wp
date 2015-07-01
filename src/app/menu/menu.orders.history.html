@@ -3,7 +3,7 @@
     <h1 class="history-header">订单历史</h1>
   </div>
   <hr>
-  <ul>
+  <ul ng-repeat="order in orders">
     <li>
       <div class="pull-left">
         <div class="row">餐厅：XXX</div>
@@ -14,13 +14,6 @@
       <a href="#/menu/orders/1" class="btn btn-default pull-right">详情</a>
       <hr>
     </li>
-
   </ul>
-  <footer class="row">
-    <div class="btn-group">
-      <button class="btn btn-default">扫码点菜</button>
-      <button class="btn btn-default">订单历史</button>
-    </div>
-  </footer>
 </div>
 
