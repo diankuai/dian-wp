@@ -7,7 +7,7 @@ angular.module('dian')
         templateUrl: 'app/menu/menu.orders.html',
         controller: 'MenuOrdersCtrl'
       })
-      .when('/menu/orders/history', {
+      .when('/orders/history', {
         templateUrl: 'app/menu/menu.orders.history.html',
         controller: 'MenuOrdersHistoryCtrl'
       })
