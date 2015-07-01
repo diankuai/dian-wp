@@ -13,6 +13,12 @@ describe('menu orders history view', function() {
     expect(element(by.css('.history-header')).getText()).toBe('订单历史');
   });
 
+  it('should display orders list', function() {
+    var orderList = element.all(by.repeater('order in orders'));
+
+    expect(orderList.length).toBe(3);
+  });
+
   afterEach(function() {
     browser.clearMockModules();
   });
