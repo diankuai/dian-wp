@@ -14,9 +14,12 @@ describe('menu orders history view', function() {
   });
 
   it('should display orders list', function() {
-    browser.debugger();
     var orderList = element.all(by.repeater('order in orders'));
     expect(orderList.count()).toBe(1);
+
+    //var orders_restuarant_name = orderList.column('order.restaurant_name');//first order in orders array
+    expect(element(by.css('.restaurant-name')).getText())
+      .toContain('test-restaurant');
   });
 
   afterEach(function() {
