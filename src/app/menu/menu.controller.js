@@ -6,7 +6,11 @@ angular.module('dian')
       .when('/menu/orders/:id', {
         templateUrl: 'app/menu/menu.orders.html',
         controller: 'MenuOrdersCtrl'
-      });
+      })
+      .when('/menu/orders/history', {
+        templateUrl: 'app/menu/menu.orders.history.html',
+        controller: 'MenuOrdersHistoryCtrl'
+      })
   })
 
   .controller('MenuCtrl', ['$scope', function ($scope, $routeParams) {
@@ -16,3 +20,7 @@ angular.module('dian')
     console.log('orders route params');
     console.log($routeParams);
   }])
+
+  .controller('MenuOrdersHistoryCtrl', [function() {
+
+  }]);
