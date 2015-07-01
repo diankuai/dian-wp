@@ -25,7 +25,7 @@ Zepto(function($) {
   var api_domain = 'http://127.0.0.1:8000/';
 
   /* get member info */
-  $.getJSON(api_domain + 'wp/get-member/',
+  $.getJSON(api_domain + 'wp/account/get-member/',
     $.param({
       'code': code
     }),
@@ -39,7 +39,7 @@ Zepto(function($) {
   );
 
   /* get restaurant info */
-  $.getJSON(api_domain + 'restaurant/get-restaurant/',
+  $.getJSON(api_domain + 'wp/restaurant/get-restaurant/',
     $.param({
       'openid': restaurant_openid
     }),
@@ -50,7 +50,7 @@ Zepto(function($) {
   );
 
   /* get restaurant's table-type */
-  $.getJSON(api_domain + 'table/list-table-type-by-restaurant/',
+  $.getJSON(api_domain + 'wp/table/list-table-type-by-restaurant/',
     $.param({
       'openid': restaurant_openid 
     }),
@@ -88,7 +88,7 @@ Zepto(function($) {
 
   /* submit form */
   $('form').submit(function () {
-    $.post('http://127.0.0.1:8000/wp/confirm-table-type/',
+    $.post('http://127.0.0.1:8000/wp/registration/confirm-table-type/',
       $('form').serialize(),
       function(data, status, xhr){
         alert('恭喜，取得 ' + data.queue_name + ' ' + data.queue_number + '号，前面还有' + data.waiting_count + '位等待');
