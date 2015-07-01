@@ -22,7 +22,6 @@ describe('mene orders view', function() {
   });
 
   it('should display order detail', function() {
-    browser.debugger();
     expect(element(by.css('.restuarant-name')).getText()).toBe('my_restuarant');
   });
 });
