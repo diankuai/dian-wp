@@ -3,18 +3,7 @@
 describe('mene orders view', function() {
   var menu_orders_1_url;
 
-  browser.addMockModule('httpmock', function() {
-    angular.module('httpmock', ['ngMockE2E'])
-      .run(function($httpBackend) {
-        $httpBackend.whenGET(/\.html$/).passThrough();
-
-        $httpBackend.expectGET(menu_orders_1_url = '/#/menu/orders/1')
-          .respond({
-            name: 'my_restuarant'
-          });
-
-      });
-  });
+  browser.addMockModule('httpmock', require('./httpmock'));
 
   beforeEach(function() {
     //browser.get(menu_orders_1_url = '/#/menu/orders/1');
@@ -23,6 +12,10 @@ describe('mene orders view', function() {
 
   it('should display order detail', function() {
     expect(element(by.css('.restuarant-name')).getText()).toBe('my_restuarant');
+  });
+
+  afterEach(function() {
+    browser.clearMockModules();
   });
 });
 
