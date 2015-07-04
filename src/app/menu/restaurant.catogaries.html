@@ -1,0 +1,52 @@
+<div id="restaurant-catogaries" class="container">
+  <header>
+    <div class="row">
+      <div class="pull-left">
+        <a goback href="javascript:;" class="btn btn-default">back</a>
+      </div>
+      <div>
+        <!-- <h3 class="restuarant-name">{{menu.restaurant}}</h3> -->
+        <h3 class="restuarant-name">XX</h3>
+      </div>
+    </div>
+    <hr>
+  </header>
+  <aside>
+    <ul>
+      <li ng-repeat="category in menu.categories" ng-click="ui.cur_tab = {{$index}}">
+        <a class="btn btn-default">{{category.name}}</a>
+      </li>
+    </ul>
+  </aside>
+  <main>
+  <!-- <ul ng-repeat="product in menu.categories"> -->
+  <div class="tab-content">
+    <!-- <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab"> -->
+    <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab === {{$index}}">
+      <ul>
+        <li ng-repeat="product in category.products">
+          <div><img src="javascript:;" alt=""></div>
+          <div>{{product.name}}</div>
+          <div>{{product.price}}元每{{product.unit}}</div>
+          <div>
+            <a class="btn btn-default" href="" ng-click="product.count = product.count + 1">+</a>
+            <span>{{product.count || 0}}</span>
+            <a href="" class="btn btn-default" ng-click="count(product, -1)">-</a>
+          </div>
+          <hr>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  </main>
+  <header>
+    <div class="pull-left">X份</div>
+<div class="pull-right">
+      <a href="#/carts/" class="btn btn-default">选好了</a>
+    </div>
+    <div class="text-center">总价：XX元</div>
+
+  </header>
+</div>

@@ -7,6 +7,18 @@ angular.module('dian')
         return {
           'detail-order': function(route_data) {
             return $http.get(config.api_url + '/wp/trade/get-detail-order/' + route_data.id);
+          },
+          'restaurant-menu': function(route_data, params) {//params is {openid: id}
+            return $http.get(config.api_url + '/wp/menu/list-menu-by-restaurant/', {
+              params: params
+            });
+          },
+          //params is {openid: id, wp_openid: id}
+          //while openid is for restaurant, wp_openid is for member
+          'restaurant-cart': function(route_data, params) {
+            return $http.get(config.api_url + '/wp/trader/get-cart-by-restaurant/', {
+              params: params
+            });
           }
         }[resource];
       };

@@ -1,6 +1,6 @@
 <div class="container" id="menu">
   <div class="row">
-    <h1>当前订单数量：{{orders.length}}</h1>
+    <h1>当前订单数量： <span>{{orders.length}}</span></h1>
   </div>
   <hr>
   <ul ng-repeat="order in orders">
@@ -18,7 +18,7 @@
   </ul>
   <footer class="row">
     <div class="btn-group">
-      <button class="btn btn-default">扫码点菜</button>
+      <a href="#/restaurant/catogaries" class="btn btn-default">扫码点菜</a>
       <a href="#/orders/history "class="btn btn-default">订单历史</a>
     </div>
   </footer>
