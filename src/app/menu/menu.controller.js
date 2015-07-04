@@ -13,9 +13,6 @@ angular.module('dian')
       })
   })
 
-  .controller('MenuCtrl', ['$scope', function ($scope, $routeParams) {
-  }])
-
   .controller('MenuOrdersCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
     console.log('orders route params');
     console.log($routeParams);

@@ -17,9 +17,11 @@ describe('menu orders history view', function() {
     var orderList = element.all(by.repeater('order in orders'));
     expect(orderList.count()).toBe(1);
 
-    //var orders_restuarant_name = orderList.column('order.restaurant_name');//first order in orders array
     expect(element(by.css('.restaurant-name')).getText())
       .toContain('test-restaurant');
+
+    expect(element(by.css('.order-status')).getText())
+      .toContain('已下单');
   });
 
   afterEach(function() {
