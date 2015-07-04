@@ -89,6 +89,6 @@ angular.module('dian')
 ])
 
 .controller('CartsCtrl', ['$scope', function($scope) {
-
+  $scope.products = [{name: 123}]
 }]);
 

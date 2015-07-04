@@ -1,1 +1,61 @@
-123
+<div id="carts" class="container">
+  <header>
+    <div class="row">
+      <div class="pull-left">
+        <a goback href="javascript:;" class="btn btn-default">back</a>
+      </div>
+      <div>
+        <h3 class="restuarant-name">XXX restuarant name</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="row text-left">
+      <h3>
+        购物车-清单
+      </h3>
+    </div>
+    <hr>
+    <div class="row text-center">
+      桌号：XXX
+    </div>
+    <hr>
+    <ul>
+      <li ng-repeat="item in products">
+        <product item="item"></product>
+      </li>
+    </ul>
+
+    <div class="row text-center">
+      下单时间：{{order.pay_time}}
+    </div>
+    <hr>
+    <div class="row">
+      <ul ng-repeat="item in order.order_items">
+        <li>
+          <div>
+            <img src="assets/images/angular.png" alt="" class="pull-left">
+          </div>
+          <div>
+            <div>
+              <div>菜名: {{item.name}}</div>
+              <div>菜价: {{item.price}}</div>
+            </div>
+            <div>
+              {{item.count}}份
+            </div>
+          </div>
+          <hr>
+
+        </li>
+      </ul>
+      <div class="row">
+        <div>共{{order.order_items.length}}份</div>
+        <div>总价：XX</div>
+      </div>
+      </div>
+
+
+
+  </header>
+</div>
+
