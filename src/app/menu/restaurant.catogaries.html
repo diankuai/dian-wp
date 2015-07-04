@@ -5,29 +5,41 @@
         <a goback href="javascript:;" class="btn btn-default">back</a>
       </div>
       <div>
-        <h3 class="restuarant-name">{{menu.restaurant}}</h3>
+        <!-- <h3 class="restuarant-name">{{menu.restaurant}}</h3> -->
+        <h3 class="restuarant-name">XX</h3>
       </div>
     </div>
     <hr>
   </header>
   <aside>
-    <a class="btn btn-default">凉菜</a>
-    <a class="btn btn-default">热菜</a>
-  </aside>
-  <main>
     <ul>
-      <li>
-        <div><img src="javascript:;" alt=""></div>
-        <div>菜名</div>
-        <div>XX元每份</div>
-        <div>
-          <a class="btn btn-default" href="" plus>+</a>
-          <span>X</span>
-          <a href="" class="btn btn-default" minux>-</a>
-        </div>
-        <hr>
+      <li ng-repeat="category in menu.categories" ng-click="ui.cur_tab = {{$index}}">
+        <a class="btn btn-default">{{category.name}}</a>
       </li>
     </ul>
+  </aside>
+  <main>
+  <!-- <ul ng-repeat="product in menu.categories"> -->
+  <div class="tab-content">
+    <!-- <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab"> -->
+    <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab === {{$index}}">
+      <ul>
+        <li ng-repeat="product in category.products">
+          <div><img src="javascript:;" alt=""></div>
+          <div>菜名</div>
+          <div>XX元每份</div>
+          <div>
+            <a class="btn btn-default" href="" plus>+</a>
+            <span>X</span>
+            <a href="" class="btn btn-default" minux>-</a>
+          </div>
+          <hr>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
   </main>
   <header>
     <div class="pull-left">X份</div>

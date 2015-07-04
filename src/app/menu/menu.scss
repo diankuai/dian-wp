@@ -3,8 +3,7 @@
   aside {
     width: $aside-width;
     float: left;
-    a {
-      display: block;
+    ul > li {
       margin-bottom: 5px;
     }
   }
