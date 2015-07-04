@@ -2,21 +2,19 @@
 
 describe('mene orders view', function() {
   var menu_orders_1_url, host;
-  host = require('./config.e2e.test').test_backend_host;
-  browser.addMockModule('httpmock', require('./httpmock'));
+  host = require('./config.e2e.test').localhost;
+  //browser.addMockModule('httpmock', require('./httpmock'));
 
   beforeEach(function() {
-    browser.get(menu_orders_1_url = (host + '/#/menu/orders/1'));
+    browser.get(menu_orders_1_url = (host + '/#/menu'));
   });
 
-  /*
-  it('should display order detail', function() {
-    expect(element(by.css('.restuarant-name')).getText()).toBe('my_restuarant');
+  it('should display orders total number', function() {
+    expect(element(by.model('orders.length'))).toBe(1);
   });
-  */
 
   afterEach(function() {
-    browser.clearMockModules();
+    //browser.clearMockModules();
   });
 });
 

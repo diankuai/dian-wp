@@ -13,6 +13,16 @@ angular.module('dian')
       })
   })
 
+  .controller('MenuCtrl', ['config', '$scope', '$http', function(config, $scope, $http) {
+    $http.get(config.api_url + '/wp/trade/list-order-now/', {
+      params : {wp_openid: 123}
+    }).then(function(res) {
+      console.log("fetch a user's orders");
+      console.log(res.data);
+      $scope.orders = res.data;
+    });
+  }])
+
   .controller('MenuOrdersCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
     console.log('orders route params');
     console.log($routeParams);
