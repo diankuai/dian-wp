@@ -37,13 +37,13 @@ angular.module('dian')
 
 .controller('MenuOrdersCtrl', ['$scope', '$routeParams', 'fetch',
   function($scope, $routeParams, fetch) {
-    console.log('orders route params');
-    console.log($routeParams);
     var order_id = $routeParams.id;
+    console.log('order');
     fetch('detail-order')({
       id: order_id
     }).then(function(res) {
       $scope.order = res.data;
+      console.log(res.data);
     });
   }
 ])
