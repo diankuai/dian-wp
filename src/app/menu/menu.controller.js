@@ -7,6 +7,10 @@ angular.module('dian')
         templateUrl: 'app/menu/menu.orders.html',
         controller: 'MenuOrdersCtrl'
       })
+      .when('/restaurant/catogaries', {
+        templateUrl: 'app/menu/restaurant.catogaries.html',
+        controller: 'ResaurantCatogariesCtrl'
+      })
       .when('/orders/history', {
         templateUrl: 'app/menu/menu.orders.history.html',
         controller: 'MenuOrdersHistoryCtrl'
@@ -30,6 +34,12 @@ angular.module('dian')
     fetch('detail-order')({id: order_id}).then(function(res) {
       $scope.order = res.data;
     });
+  }])
+
+  .controller('ResaurantCatogariesCtrl', ['fetch', '$scope', function(fetch, $scope) {
+    fetch('restaurant-menu')(null, {openid: 'can123'}).then(function(res) {
+      $scope.menu = res.data;
+    })
   }])
 
   .controller('MenuOrdersHistoryCtrl', ['config', '$http', '$scope', function(config, $http, $scope) {
