@@ -26,12 +26,12 @@
       <ul>
         <li ng-repeat="product in category.products">
           <div><img src="javascript:;" alt=""></div>
-          <div>菜名</div>
-          <div>XX元每份</div>
+          <div>{{product.name}}</div>
+          <div>{{product.price}}元每{{product.unit}}</div>
           <div>
-            <a class="btn btn-default" href="" plus>+</a>
-            <span>X</span>
-            <a href="" class="btn btn-default" minux>-</a>
+            <a class="btn btn-default" href="" ng-click="product.count = product.count + 1">+</a>
+            <span>{{product.count || 0}}</span>
+            <a href="" class="btn btn-default" ng-click="count(product, -1)">-</a>
           </div>
           <hr>
         </li>
@@ -44,7 +44,7 @@
   <header>
     <div class="pull-left">X份</div>
 <div class="pull-right">
-      <a href="" class="btn btn-default">选好了</a>
+      <a href="#/carts/" class="btn btn-default">选好了</a>
     </div>
     <div class="text-center">总价：XX元</div>
 
