@@ -15,6 +15,7 @@
       </h3>
     </div>
     <hr>
+
     <div class="row text-center">
       桌号：XXX
     </div>
@@ -53,6 +54,22 @@
         <div>总价：XX</div>
       </div>
       </div>
+      <hr>
+
+
+
+    <div ng-if="!order.ok" class="row text-center">
+      <a href="" class="btn btn-default" ng-click="order.ok = !order.ok">下单</a>
+    </div>
+    <div ng-if="!order.ok" class="text-center">
+      <div>
+        餐厅wifi
+        <br>
+        名称：XX
+        <br>
+        密码：XX
+      </div>
+    </div>
 
 
 
