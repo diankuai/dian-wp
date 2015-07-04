@@ -22,7 +22,7 @@ Zepto(function($) {
   var restaurant_openid = params.state;
   console.log(params);
 
-  var api_domain = 'http://127.0.0.1:8000/';
+  var api_domain = 'http://dev.dk26.com:8080/';
 
   /* get member info */
   $.getJSON(api_domain + 'wp/account/get-member/',
@@ -88,7 +88,7 @@ Zepto(function($) {
 
   /* submit form */
   $('form').submit(function () {
-    $.post('http://127.0.0.1:8000/wp/registration/confirm-table-type/',
+    $.post(api_domain + 'wp/registration/confirm-table-type/',
       $('form').serialize(),
       function(data, status, xhr){
         alert('恭喜，取得 ' + data.queue_name + ' ' + data.queue_number + '号，前面还有' + data.waiting_count + '位等待');
