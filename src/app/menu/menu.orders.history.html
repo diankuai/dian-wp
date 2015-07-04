@@ -1,0 +1,20 @@
+<div class="container" id="orders-history">
+  <div class="row">
+    <h1 class="history-header">订单历史</h1>
+  </div>
+  <hr>
+  <ul ng-repeat="order in orders">
+    <li>
+      <div class="pull-left">
+        <div class="row restaurant-name">餐厅：{{order.restaurant_name}}</div>
+        <div class="row order-status">状态：{{order.status}}</div>
+        <div class="row">下单时间：{{order.pay_time}}</div>
+        <div class="row">金额：{{order.price}}</div>
+      </div>
+      <a ng-href="#/menu/orders/{{order.id}}" class="btn btn-default pull-right">详情</a>
+
+      <hr>
+    </li>
+  </ul>
+</div>
+
