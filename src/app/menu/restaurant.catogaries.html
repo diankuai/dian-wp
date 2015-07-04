@@ -1,4 +1,3 @@
-123
 <div id="restaurant-catogaries" class="container">
   <header>
     <div class="row">
@@ -10,36 +9,32 @@
       </div>
     </div>
     <hr>
-    <div class="row text-center">
-      下单时间：{{order.pay_time}}
+  </header>
+  <aside>
+    <a class="btn btn-default">凉菜</a>
+    <a class="btn btn-default">热菜</a>
+  </aside>
+  <main>
+    <ul>
+      <li>
+        <div><img src="javascript:;" alt=""></div>
+        <div>菜名</div>
+        <div>XX元每份</div>
+        <div>
+          <a class="btn btn-default" href="" plus>+</a>
+          <span>X</span>
+          <a href="" class="btn btn-default" minux>-</a>
+        </div>
+        <hr>
+      </li>
+    </ul>
+  </main>
+  <header>
+    <div class="pull-left">X份</div>
+<div class="pull-right">
+      <a href="" class="btn btn-default">选好了</a>
     </div>
-    <hr>
-    <div class="row">
-      <ul ng-repeat="item in order.order_items">
-        <li>
-          <div>
-            <img src="assets/images/angular.png" alt="" class="pull-left">
-          </div>
-          <div>
-            <div>
-              <div>菜名: {{item.name}}</div>
-              <div>菜价: {{item.price}}</div>
-            </div>
-            <div>
-              {{item.count}}份
-            </div>
-          </div>
-          <hr>
-
-        </li>
-      </ul>
-      <div class="row">
-        <div>共{{order.order_items.length}}份</div>
-        <div>总价：XX</div>
-      </div>
-      </div>
-
-
+    <div class="text-center">总价：XX元</div>
 
   </header>
 </div>

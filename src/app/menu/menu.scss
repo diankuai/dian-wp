@@ -1,2 +1,14 @@
-#menu {
+#restaurant-catogaries {
+  $aside-width: 100px;
+  aside {
+    width: $aside-width;
+    float: left;
+    a {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+  main {
+    margin-left: $aside-width;
+  }
 }
