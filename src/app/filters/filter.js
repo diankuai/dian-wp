@@ -17,11 +17,9 @@ angular.module('dian')
     function() {
       return function(order_status_num) {
         return {
-          '0': '已下单',
-          '1': '待付款',
-          '2': '已付款',
-          '3': '已取消'
-        }[order_status_num + ''] || '未下单';
+          '0': '餐厅已确认，请等待上菜',
+          '1': '实在抱歉，餐厅退回了订单'
+        }[order_status_num + ''] || '';
       };
     }
   ]);

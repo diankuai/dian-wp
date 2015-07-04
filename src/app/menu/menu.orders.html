@@ -4,20 +4,21 @@
       <div class="pull-left">
         <a goback href="javascript:;" class="btn btn-default">back</a>
       </div>
-      <div>
-        <h3 class="restuarant-name">{{order.restaurant}}</h3>
-      </div>
       <div class="pull-right">
         <a goback href="javascript:;" class="btn btn-default">wifi</a>
       </div>
       <div class="pull-right">
         <a goback href="javascript:;" class="btn btn-default">公众号</a>
       </div>
+      <div>
+        <h3 class="restaurant-name text-center">{{order.restaurant_name}}</h3>
+      </div>
+
     </div>
     <hr>
     <div class="row text-center">
       <h3>
-        {{order.status}}
+        {{order.status | order_status}}
       </h3>
     </div>
     <hr>
@@ -27,7 +28,7 @@
     <hr>
 
     <div class="row text-center">
-      下单时间：{{order.pay_time}}
+      下单时间：{{order.pay_time | order_time}}
     </div>
     <hr>
     <div class="row">
