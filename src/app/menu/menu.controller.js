@@ -185,6 +185,7 @@ angular.module('dian')
         wp_openid: member_openid
       }
     }).then(function(res) {
+      $scope.order_create_ok = true;
       console.log('place order');
       console.log(order);
       console.log('response');
@@ -201,7 +202,6 @@ angular.module('dian')
       $scope.cart = res.data;
       cart_id = $scope.cart.id;
       $scope.products = $scope.cart.cart_items || [];
-      //$scope.products = utils.pluck($scope.cart.cart_items, 'product');
       $scope.total_price = utils.listItemSum($scope.products, 'price');
       $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
     });
