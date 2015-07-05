@@ -25,7 +25,15 @@ angular.module('dian')
     },
     contains: function(collection, key, value) {
       return this.find(collection, key, value) === -1;
+    },
+    pluck: function(collection, key) {
+      var ret = [];
+      angular.forEach(collection, function(v) {
+        ret.push(v[key]);
+      });
+      return ret;
     }
+
   };
 });
 

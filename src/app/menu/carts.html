@@ -3,8 +3,11 @@
 
     <hr>
     <div class="row text-left">
-      <h3>
+      <h3 ng-if="!order_create_ok">
         购物车-清单
+      </h3>
+      <h3 ng-if="order_create_ok">
+        下单成功，待餐厅确认
       </h3>
     </div>
     <hr>
@@ -24,33 +27,6 @@
       下单时间：{{order.pay_time}}
     </div>
     <hr>
-    <div class="row">
-      <ul ng-repeat="item in order.order_items">
-        <li>
-          <div>
-            <img src="assets/images/angular.png" alt="" class="pull-left">
-          </div>
-          <div>
-            <div>
-              <div>菜名: {{item.name}}</div>
-              <div>菜价: {{item.price}}</div>
-            </div>
-            <div>
-              {{item.count}}份
-            </div>
-          </div>
-          <hr>
-
-        </li>
-      </ul>
-      <div class="row">
-        <div class="pull-left">总价：{{total_price}}</div>
-        <div class="pull-right">共{{total_count}}份</div>
-      </div>
-      </div>
-      <hr>
-
-
 
     <div ng-if="!order.ok" class="row text-center">
       <a href="" class="btn btn-default" ng-click="placeOrder()">下单</a>
