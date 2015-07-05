@@ -35,14 +35,16 @@ angular.module('dian')
   }
 ])
 
-.controller('MenuOrdersCtrl', ['$scope', '$routeParams', 'fetch',
-  function($scope, $routeParams, fetch) {
+.controller('MenuOrdersCtrl', ['$scope', '$routeParams', 'fetch', 'utils',
+  function($scope, $routeParams, fetch, utils) {
     var order_id = $routeParams.id;
     console.log('order');
     fetch('detail-order')({
       id: order_id
     }).then(function(res) {
       $scope.order = res.data;
+      $scope.total_price = utils.listItemSum($scope.order.order_items, 'price');
+      $scope.total_count = utils.listItemSum($scope.order.order_items, 'count');
       console.log(res.data);
     });
   }
@@ -55,6 +57,7 @@ angular.module('dian')
     $scope.count = function(product, num) {
       product.count && (product.count += num);
     };
+
 
     fetch('restaurant-menu')(null, {
       openid: 'can123'
