@@ -37,7 +37,7 @@ angular.module('dian')
 
 .controller('MenuOrdersCtrl', ['$scope', '$routeParams', 'fetch', 'utils',
   function($scope, $routeParams, fetch, utils) {
-    var order_id = $routeParams.id;
+    var order_id = $routeParams.id, member_openid, restaurant_openid;
     console.log('order');
     fetch('detail-order')({
       id: order_id
@@ -52,7 +52,7 @@ angular.module('dian')
 
 .controller('RestaurantCatogariesCtrl', ['config', 'utils', 'fetch', '$scope', '$http',
   function(config, utils, fetch, $scope, $http) {
-    var restaurant_openid;
+    var restaurant_openid, member_openid, cart_id;
     $scope.ui = { cur_tab: 0 };//view model of tabs and cur category
 
     $scope.products_collection = [];
@@ -100,8 +100,23 @@ angular.module('dian')
 
 
     $scope.selectOk = function() {
-      //$http.post(config.api_url + '/wp/update-cart/?cart_id=' + )
-      $http.post(config.api_url + '/wp/trade/update-cart/', $scope.products_collection).then(function(res) {
+      var products_collection = angular.extend($scope.products_collection);
+      angular.forEach(products_collection, function(v) {
+        angular.forEach(v, function(value, key, obj) {
+          if (!obj.productid) {
+            obj.productid = obj.id;
+          }
+          if (key === 'productid' || key === 'count') {
+            return;
+          }
+          delete obj[key];
+        });
+      });
+      $http.post(
+        config.api_url + '/wp/trade/update-cart/' + cart_id + '/',
+        products_collection
+      )
+      .then(function(res) {
         console.log('post cart');
         console.log(res);
       });
@@ -121,6 +136,16 @@ angular.module('dian')
       console.log(res.data[0]);
       $scope.menu = res.data[0];//an array now one restaurant has only one menu
       $scope.menu.restaurant_name = 123;//for debug
+    });
+
+    fetch('restaurant-cart')({table_id: 1}, {
+      openid: restaurant_openid = 'can123',
+      wp_openid: member_openid = 123
+    }).then(function(res) {
+      console.log('restaurant cart');
+      console.log(res.data);
+      $scope.cart = res.data;
+      cart_id = $scope.cart.id;
     });
 
 
@@ -151,7 +176,7 @@ angular.module('dian')
 ])
 
 .controller('CartsCtrl', ['config', 'utils', 'fetch', '$scope', '$http', function(config, utils, fetch, $scope, $http) {
-  var restaurant_openid, memeber_openid;
+  var restaurant_openid, member_openid;
   //$scope.products = [{name: 123}];
   $scope.placeOrder = function(order) {
     $http.post(config.api_url + '/wp/trade/create-order-from-cart/', order).then(function(res) {
@@ -162,15 +187,16 @@ angular.module('dian')
     });
   };
 
-  fetch('restaurant-cart')(null, {
+  fetch('restaurant-cart')({table_id: 1}, {
       openid: restaurant_openid = 'can123',
-      wp_openid: memeber_openid = 123
+      wp_openid: member_openid = 123
     }).then(function(res) {
       console.log('cart');
       console.log(res.data);
       $scope.cart = res.data;
-      $scope.products = $scope.cart.cart_items || [];
-      $scope.total_price = utils.listItemSum($scope.cart.cart_items, 'price');
+      //$scope.products = $scope.cart.cart_items || [];
+      $scope.products = utils.pluck($scope.cart.cart_items, 'product');
+      $scope.total_price = utils.listItemSum($scope.products, 'price');
       $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
     });
 }]);
