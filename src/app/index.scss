@@ -69,6 +69,15 @@ footer {
 .row {
   @include clear-fix;
 }
+.xs-col-3 {
+  width: 100% / 12 * 3;
+  float: left;
+}
+
+.xs-col-6 {
+  width: 100% / 12 * 6;
+  float: left;
+}
 //grid end
 
 hr {
