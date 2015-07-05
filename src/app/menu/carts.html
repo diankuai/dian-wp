@@ -19,6 +19,7 @@
       </li>
     </ul>
 
+
     <div class="row text-center">
       下单时间：{{order.pay_time}}
     </div>
@@ -43,8 +44,8 @@
         </li>
       </ul>
       <div class="row">
-        <div>共{{order.order_items.length}}份</div>
-        <div>总价：XX</div>
+        <div class="pull-left">总价：{{total_price}}</div>
+        <div class="pull-right">共{{total_count}}份</div>
       </div>
       </div>
       <hr>
@@ -52,7 +53,7 @@
 
 
     <div ng-if="!order.ok" class="row text-center">
-      <a href="" class="btn btn-default" ng-click="order.ok = !order.ok">下单</a>
+      <a href="" class="btn btn-default" ng-click="placeOrder()">下单</a>
     </div>
     <div ng-if="!order.ok" class="text-center">
       <div>

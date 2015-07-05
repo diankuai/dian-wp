@@ -19,9 +19,9 @@
           <div>{{product.name}}</div>
           <div>{{product.price}}元每{{product.unit}}</div>
           <div>
-            <a class="btn btn-default" href="" ng-click="product.count = product.count + 1">+</a>
+            <a class="btn btn-default" href="" ng-click="add(product, 1)">+</a>
             <span>{{product.count || 0}}</span>
-            <a href="" class="btn btn-default" ng-click="count(product, -1)">-</a>
+            <a href="" class="btn btn-default" ng-click="add(product, -1)">-</a>
           </div>
           <hr>
         </li>
@@ -32,7 +32,7 @@
 
   </main>
   <div class="row">
-    <div class="pull-left">X份</div>
+    <div class="pull-left">共{{total_count}}份</div>
 <div class="pull-right">
       <a href="#/carts/" class="btn btn-default">选好了</a>
     </div>

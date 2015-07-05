@@ -50,18 +50,69 @@ angular.module('dian')
   }
 ])
 
-.controller('RestaurantCatogariesCtrl', ['fetch', '$scope',
-  function(fetch, $scope) {
-    var restaurant_openid;
-    $scope.ui = { cur_tab: 0 };//view model of tabs
+.controller('RestaurantCatogariesCtrl', ['utils', 'fetch', '$scope',
+  function(utils, fetch, $scope) {
+    var restaurant_openid, products;
+    $scope.ui = { cur_tab: 0 };//view model of tabs and cur category
 
-    $scope.count = function(product, num) {
-      product.count && (product.count += num);
+    $scope.products_collection = [];
+
+    $scope.add = function(product, num) {
+      var index, p;
+      !product.count && (product.count = 0);
+      if (num < 0 && product.count + num <= 0) {
+        product.count = 0;
+        rmFromCart(product);
+      } else {
+        if (product.count >= 0) {
+          product.count += num;
+          if (cartConain(product)) {
+            updateCartProduct(product);
+          } else {
+            addToCart(product);
+          }
+        }
+      }
+      console.log($scope.products_collection);
+      function updateCartProduct(product) {
+        var i, p;
+        i = utils.find($scope.products_collection, 'id', product.id);
+        $scope.products_collection[i] && ($scope.products_collection[i] = product);
+      }
+
+      function cartConain(product) {
+        return utils.find($scope.products_collection, 'id', product.id) !== -1;
+      }
+
+      function addToCart(product) {
+        $scope.products_collection.push(product);
+      }
+
+      function rmFromCart(product) {
+        var i, c;
+        c = $scope.products_collection;
+        if (!cartConain(product)) {
+          return;
+        }
+        i  = utils.find($scope.products_collection, 'id', product.id);
+        $scope.products_collection = c.slice(0, i - 1).concat(c.slice(i + 1));
+      }
     };
+
 
     $scope.selectOk = function() {
 
     };
+
+    $scope.$watch('ui.cur_tab', function(n, o) {
+
+    });
+
+    $scope.$watchCollection('menu.categories', function(newpc, oldpc) {
+      if ($scope.menu) {
+        $scope.total_count = utils.listItemSum($scope.menu.catogaries, 'count');
+      }
+    });
 
     fetch('restaurant-menu')(null, {
       openid: restaurant_openid = 'can123'
@@ -98,9 +149,18 @@ angular.module('dian')
   }
 ])
 
-.controller('CartsCtrl', ['fetch', '$scope', function(fetch, $scope) {
+.controller('CartsCtrl', ['config', 'utils', 'fetch', '$scope', '$http', function(config, utils, fetch, $scope, $http) {
   var restaurant_openid, memeber_openid;
   //$scope.products = [{name: 123}];
+  $scope.placeOrder = function(order) {
+    $http.post(config.api_url + '/wp/trade/create-order-from-cart/', order).then(function(res) {
+      console.log('place order');
+      console.log(order);
+      console.log('response');
+      console.log(res);
+    })
+  };
+
   fetch('restaurant-cart')(null, {
       openid: restaurant_openid = 'can123',
       wp_openid: memeber_openid = 123
@@ -109,6 +169,8 @@ angular.module('dian')
       console.log(res.data);
       $scope.cart = res.data;
       $scope.products = $scope.cart.cart_items || [];
+      $scope.total_price = utils.listItemSum($scope.cart.cart_items, 'price');
+      $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
     });
 }]);
 

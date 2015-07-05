@@ -12,6 +12,19 @@ angular.module('dian')
       });
 
       return sum;
+    },
+    find: function(collection, key, value) {
+      var index = -1;
+      angular.forEach(collection, function(obj, i) {
+        //here angular foreach not support break
+        if (obj[key] === value) {
+          index = i;
+        }
+      });
+      return index;
+    },
+    contains: function(collection, key, value) {
+      return this.find(collection, key, value) === -1;
     }
   };
 });
