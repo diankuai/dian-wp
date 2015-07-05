@@ -155,7 +155,7 @@ angular.module('dian')
 .controller('MenuOrdersHistoryCtrl', ['config', '$http', '$scope',
   function(config, $http, $scope) {
     $scope.orders = [{
-      "id": 3,
+      "id": 1,
       "restaurant": 1,
       "restaurant_name": "test-restaurant",
       "create_time": "2015-07-01T08:25:41Z",
@@ -176,10 +176,15 @@ angular.module('dian')
 ])
 
 .controller('CartsCtrl', ['config', 'utils', 'fetch', '$scope', '$http', function(config, utils, fetch, $scope, $http) {
-  var restaurant_openid, member_openid;
+  var restaurant_openid, member_openid, cart_id;
   //$scope.products = [{name: 123}];
   $scope.placeOrder = function(order) {
-    $http.post(config.api_url + '/wp/trade/create-order-from-cart/', order).then(function(res) {
+    $http.post(config.api_url + '/wp/trade/create-order-from-cart/' + cart_id + '/', {}, {
+      params: {
+        openid: restaurant_openid,
+        wp_openid: member_openid
+      }
+    }).then(function(res) {
       console.log('place order');
       console.log(order);
       console.log('response');
@@ -194,8 +199,9 @@ angular.module('dian')
       console.log('cart');
       console.log(res.data);
       $scope.cart = res.data;
-      //$scope.products = $scope.cart.cart_items || [];
-      $scope.products = utils.pluck($scope.cart.cart_items, 'product');
+      cart_id = $scope.cart.id;
+      $scope.products = $scope.cart.cart_items || [];
+      //$scope.products = utils.pluck($scope.cart.cart_items, 'product');
       $scope.total_price = utils.listItemSum($scope.products, 'price');
       $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
     });
