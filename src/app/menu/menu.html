@@ -7,11 +7,11 @@
     <li>
       <div class="pull-left">
         <div class="row">餐厅： {{order.restaurant_name}}</div>
-        <div class="row">状态：{{order.status}}</div>
-        <div class="row">下单时间：{{order.pay_time}}</div>
+        <div class="row">状态：{{order.status | order_status}}</div>
+        <div class="row">下单时间：{{order.pay_time | order_time}}</div>
         <div class="row">金额：{{order.price}}</div>
       </div>
-      <a href="#/menu/orders/1" class="btn btn-default pull-right">详情</a>
+      <a ng-href="#/menu/orders/{{order.id}}" class="btn btn-default pull-right">详情</a>
       <hr>
     </li>
 

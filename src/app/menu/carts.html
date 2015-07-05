@@ -1,13 +1,6 @@
 <div id="carts" class="container">
-  <header>
-    <div class="row">
-      <div class="pull-left">
-        <a goback href="javascript:;" class="btn btn-default">back</a>
-      </div>
-      <div>
-        <h3 class="restuarant-name">XXX restuarant name</h3>
-      </div>
-    </div>
+  <header title="XXX restuarant name"></header>
+
     <hr>
     <div class="row text-left">
       <h3>
@@ -25,6 +18,7 @@
         <product item="item"></product>
       </li>
     </ul>
+
 
     <div class="row text-center">
       下单时间：{{order.pay_time}}
@@ -50,8 +44,8 @@
         </li>
       </ul>
       <div class="row">
-        <div>共{{order.order_items.length}}份</div>
-        <div>总价：XX</div>
+        <div class="pull-left">总价：{{total_price}}</div>
+        <div class="pull-right">共{{total_count}}份</div>
       </div>
       </div>
       <hr>
@@ -59,7 +53,7 @@
 
 
     <div ng-if="!order.ok" class="row text-center">
-      <a href="" class="btn btn-default" ng-click="order.ok = !order.ok">下单</a>
+      <a href="" class="btn btn-default" ng-click="placeOrder()">下单</a>
     </div>
     <div ng-if="!order.ok" class="text-center">
       <div>
@@ -73,6 +67,5 @@
 
 
 
-  </header>
 </div>
 
