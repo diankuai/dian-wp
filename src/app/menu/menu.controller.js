@@ -18,7 +18,7 @@ angular.module('dian')
       .when('/carts', {
         templateUrl: 'app/menu/carts.html',
         controller: 'CartsCtrl'
-      })
+      });
   })
 
 .controller('MenuCtrl', ['config', '$scope', '$http',
@@ -28,7 +28,7 @@ angular.module('dian')
         wp_openid: 123
       }
     }).then(function(res) {
-      console.log("fetch a user's orders");
+      console.log('fetch a user orders');
       console.log(res.data);
       $scope.orders = res.data;
     });
@@ -50,15 +50,14 @@ angular.module('dian')
   }
 ])
 
-.controller('RestaurantCatogariesCtrl', ['utils', 'fetch', '$scope',
-  function(utils, fetch, $scope) {
-    var restaurant_openid, products;
+.controller('RestaurantCatogariesCtrl', ['config', 'utils', 'fetch', '$scope', '$http',
+  function(config, utils, fetch, $scope, $http) {
+    var restaurant_openid;
     $scope.ui = { cur_tab: 0 };//view model of tabs and cur category
 
     $scope.products_collection = [];
 
     $scope.add = function(product, num) {
-      var index, p;
       !product.count && (product.count = 0);
       if (num < 0 && product.count + num <= 0) {
         product.count = 0;
@@ -75,7 +74,7 @@ angular.module('dian')
       }
       console.log($scope.products_collection);
       function updateCartProduct(product) {
-        var i, p;
+        var i;
         i = utils.find($scope.products_collection, 'id', product.id);
         $scope.products_collection[i] && ($scope.products_collection[i] = product);
       }
@@ -101,12 +100,16 @@ angular.module('dian')
 
 
     $scope.selectOk = function() {
-
+      //$http.post(config.api_url + '/wp/update-cart/?cart_id=' + )
+      $http.post(config.api_url + '/wp/trade/update-cart/', $scope.products_collection).then(function(res) {
+        console.log('post cart');
+        console.log(res);
+      });
     };
 
     //oops, $watchCollection not udpate item, only create remove move
     //so use watch
-    $scope.$watch('products_collection', function(newpc, oldpc) {
+    $scope.$watch('products_collection', function(newpc) {
       $scope.total_price = utils.listItemSum(newpc, 'price', 'count');
       $scope.total_count = utils.listItemSum(newpc, 'count');
     }, true);
@@ -140,7 +143,8 @@ angular.module('dian')
       params: {
         wp_openid: 123
       }
-    }).then(function(res) {
+    }).then(function() {
+    //}).then(function(res) {
       //$scope.orders = res.data;
     });
   }
@@ -155,7 +159,7 @@ angular.module('dian')
       console.log(order);
       console.log('response');
       console.log(res);
-    })
+    });
   };
 
   fetch('restaurant-cart')(null, {
