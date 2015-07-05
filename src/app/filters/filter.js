@@ -12,8 +12,23 @@ angular.module('dian')
       };
     }
   ])
+  .filter('CHY', [function() {
+    return function(price) {
+      var intoPrice;
+      return (angular.isNumber(intoPrice = price * 1.0) && intoPrice.toFixed(2) || 0) + '元';
+    };
+  }])
+  .filter('order_status_short', [
+    function() {
+      return function(order_status_num) {
+        return {
+          '0': '已完成',
+          '1': '已退订'
+        }[order_status_num + ''] || '';
+      };
+    }
+  ])
   .filter('order_status', [
-
     function() {
       return function(order_status_num) {
         return {

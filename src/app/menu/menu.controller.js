@@ -72,7 +72,7 @@ angular.module('dian')
 .controller('MenuOrdersHistoryCtrl', ['config', '$http', '$scope',
   function(config, $http, $scope) {
     $scope.orders = [{
-      "id": 1,
+      "id": 3,
       "restaurant": 1,
       "restaurant_name": "test-restaurant",
       "create_time": "2015-07-01T08:25:41Z",
