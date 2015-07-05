@@ -58,13 +58,13 @@ angular.module('dian')
       product.count && (product.count += num);
     };
 
-
     fetch('restaurant-menu')(null, {
       openid: 'can123'
     }).then(function(res) {
       console.log('restaurant menu');
       console.log(res.data[0]);
       $scope.menu = res.data[0];//an array now one restaurant has only one menu
+      $scope.menu.restaurant_name = 123;//for debug
     });
   }
 ])

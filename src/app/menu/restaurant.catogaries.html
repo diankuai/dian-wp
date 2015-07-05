@@ -1,16 +1,6 @@
 <div id="restaurant-catogaries" class="container">
-  <header>
-    <div class="row">
-      <div class="pull-left">
-        <a goback href="javascript:;" class="btn btn-default">back</a>
-      </div>
-      <div>
-        <!-- <h3 class="restuarant-name">{{menu.restaurant}}</h3> -->
-        <h3 class="restuarant-name">XX</h3>
-      </div>
-    </div>
-    <hr>
-  </header>
+  <header title="{{menu.restaurant_name}}"></header>
+  <hr>
   <aside>
     <ul>
       <li ng-repeat="category in menu.categories" ng-click="ui.cur_tab = {{$index}}">
@@ -41,12 +31,12 @@
 
 
   </main>
-  <header>
+  <div class="row">
     <div class="pull-left">X份</div>
 <div class="pull-right">
       <a href="#/carts/" class="btn btn-default">选好了</a>
     </div>
     <div class="text-center">总价：XX元</div>
 
-  </header>
+  </div class="row">
 </div>
