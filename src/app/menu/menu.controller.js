@@ -52,20 +52,27 @@ angular.module('dian')
 
 .controller('RestaurantCatogariesCtrl', ['fetch', '$scope',
   function(fetch, $scope) {
+    var restaurant_openid;
     $scope.ui = { cur_tab: 0 };//view model of tabs
 
     $scope.count = function(product, num) {
       product.count && (product.count += num);
     };
 
+    $scope.selectOk = function() {
+
+    };
+
     fetch('restaurant-menu')(null, {
-      openid: 'can123'
+      openid: restaurant_openid = 'can123'
     }).then(function(res) {
       console.log('restaurant menu');
       console.log(res.data[0]);
       $scope.menu = res.data[0];//an array now one restaurant has only one menu
       $scope.menu.restaurant_name = 123;//for debug
     });
+
+
   }
 ])
 
@@ -91,7 +98,17 @@ angular.module('dian')
   }
 ])
 
-.controller('CartsCtrl', ['$scope', function($scope) {
-  $scope.products = [{name: 123}]
+.controller('CartsCtrl', ['fetch', '$scope', function(fetch, $scope) {
+  var restaurant_openid, memeber_openid;
+  //$scope.products = [{name: 123}];
+  fetch('restaurant-cart')(null, {
+      openid: restaurant_openid = 'can123',
+      wp_openid: memeber_openid = 123
+    }).then(function(res) {
+      console.log('cart');
+      console.log(res.data);
+      $scope.cart = res.data;
+      $scope.products = $scope.cart.cart_items || [];
+    });
 }]);
 
