@@ -3,11 +3,11 @@
 angular.module('dian')
 .factory('utils', function() {
   return {
-    listItemSum: function(list, key) {
-      var sum = 0;
+    listItemSum: function(list, key, other) {
+      var sum = 0, factor;
       angular.forEach(list, function(v) {
         if (!angular.isUndefined(v[key])) {
-          sum += (v[key] * 1.0);
+          sum += (v[key] * (factor = (angular.isNumber(v[other] * 1) && v[other]) || 1) * 1.0);
         }
       });
 

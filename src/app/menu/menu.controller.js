@@ -95,7 +95,7 @@ angular.module('dian')
           return;
         }
         i  = utils.find($scope.products_collection, 'id', product.id);
-        $scope.products_collection = c.slice(0, i - 1).concat(c.slice(i + 1));
+        $scope.products_collection = c.slice(0, i).concat(c.slice(i + 1));
       }
     };
 
@@ -104,15 +104,12 @@ angular.module('dian')
 
     };
 
-    $scope.$watch('ui.cur_tab', function(n, o) {
-
-    });
-
-    $scope.$watchCollection('menu.categories', function(newpc, oldpc) {
-      if ($scope.menu) {
-        $scope.total_count = utils.listItemSum($scope.menu.catogaries, 'count');
-      }
-    });
+    //oops, $watchCollection not udpate item, only create remove move
+    //so use watch
+    $scope.$watch('products_collection', function(newpc, oldpc) {
+      $scope.total_price = utils.listItemSum(newpc, 'price', 'count');
+      $scope.total_count = utils.listItemSum(newpc, 'count');
+    }, true);
 
     fetch('restaurant-menu')(null, {
       openid: restaurant_openid = 'can123'
