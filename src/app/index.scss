@@ -20,6 +20,12 @@ ul, ol {
   text-align: center;
 }
 
+.nav.nav-pills.nav-stacked {
+  .active > a {
+    @extend .btn;
+  }
+}
+
 footer {
   position: fixed;
   bottom: 15px;
@@ -35,7 +41,6 @@ footer {
   border: 0;
   color: white;
   background-color: $btn-default-bg;
-  border-color: #4cae4c;
   padding: 10px 16px;
   line-height: 1.33;
   border-radius: 6px;

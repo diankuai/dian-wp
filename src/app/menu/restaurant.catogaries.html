@@ -2,9 +2,9 @@
   <header title="{{menu.restaurant_name}}"></header>
   <hr>
   <aside>
-    <ul>
-      <li ng-repeat="category in menu.categories" ng-click="ui.cur_tab = {{$index}}">
-        <a class="btn btn-default">{{category.name}}</a>
+    <ul class="nav nav-pills nav-stacked">
+      <li ng-repeat="category in menu.categories" ng-class="{true: 'active'}[ui.cur_tab === {{$index}}]" ng-click="ui.cur_tab = {{$index}}">
+        <a>{{category.name}}</a>
       </li>
     </ul>
   </aside>
