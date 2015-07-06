@@ -8,7 +8,7 @@ angular.module('dian')
         controller: 'MenuOrdersCtrl'
       })
       .when('/restaurant/catogaries', {
-        templateUrl: 'app/menu/restaurant.catogaries.html',
+        templateUrl: 'app/menu/restaurant.categories.html',
         controller: 'RestaurantCatogariesCtrl'
       })
       .when('/orders/history', {
