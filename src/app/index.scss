@@ -21,8 +21,11 @@ ul, ol {
 }
 
 .nav.nav-pills.nav-stacked {
-  .active > a {
+  li > a {
     @extend .btn;
+  }
+  .active > a {
+    @extend .btn-default;
   }
 }
 
@@ -39,11 +42,16 @@ footer {
   vertical-align: middle;
   cursor: pointer;
   border: 0;
-  color: white;
-  background-color: $btn-default-bg;
+  color: black;
+  background-color: white;
   padding: 10px 16px;
   line-height: 1.33;
   border-radius: 6px;
+}
+
+.btn.btn-default {
+  color: white;
+  background-color: $btn-default-bg;
 }
 
 //utils begin
