@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute'])
-  .constant('config', {
-    api_url: 'http://dev.dk26.com:8080'
-  })
+//for dianApp code reuse
+angular.module('dianApp', ['dian']);
+
+angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/photo', {

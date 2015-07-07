@@ -43,12 +43,11 @@ angular.module('dian')
     console.log('restaurant');
     console.log(res.data);
     $scope.restaurant = res.data;
-    /* for debug
     $scope.restaurant = angular.extend($scope.restaurant, {
       wifi_name: 123,
-      wifi_password: 213
-    })
-    */
+      wifi_password: 213,
+      wp_qrcode_file_key: 123123123
+    });
   });
 }]);
 
