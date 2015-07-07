@@ -54,6 +54,12 @@ footer {
   background-color: $btn-default-bg;
 }
 
+.btn.btn-xs {
+  padding: 5px 8px;
+  line-height: 1;
+  border-radius: 3px;
+}
+
 //utils begin
 .text-center {
   text-align: center!important;
