@@ -23,6 +23,13 @@ angular.module('dian')
       });
       return index;
     },
+    map: function(collection, iter, thisArg) {
+      var ret = [];
+      angular.forEach(collection, function(v) {
+        ret.push(angular.isFunction(iter) ? iter.call(thisArg, v) : v);
+      });
+      return ret;
+    },
     contains: function(collection, key, value) {
       return this.find(collection, key, value) === -1;
     },

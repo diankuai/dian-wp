@@ -7,7 +7,7 @@
       <div>菜名: {{item.name}}</div>
       <div>菜价: {{item.price}}</div>
     </div>
-    <div class="pull-right">
+    <div ng-if="unit" class="pull-right">
       {{item.count}}份
     </div>
   </div>

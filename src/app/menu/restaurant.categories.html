@@ -2,27 +2,30 @@
   <header title="{{menu.restaurant_name}}"></header>
   <hr>
   <aside>
-    <ul>
-      <li ng-repeat="category in menu.categories" ng-click="ui.cur_tab = {{$index}}">
-        <a class="btn btn-default">{{category.name}}</a>
+    <ul class="nav nav-pills nav-stacked">
+      <li ng-repeat="category in menu.categories" ng-class="{true: 'active'}[ui.cur_tab === {{$index}}]" ng-click="ui.cur_tab = {{$index}}">
+        <a>{{category.name}}</a>
       </li>
     </ul>
   </aside>
-  <main>
+  <main class="row">
   <!-- <ul ng-repeat="product in menu.categories"> -->
   <div class="tab-content">
     <!-- <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab"> -->
     <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab === {{$index}}">
       <ul>
         <li ng-repeat="product in category.products">
-          <div><img src="javascript:;" alt=""></div>
-          <div>{{product.name}}</div>
-          <div>{{product.price}}元每{{product.unit}}</div>
-          <div>
-            <a class="btn btn-default" href="" ng-click="add(product, 1)">+</a>
-            <span>{{product.count || 0}}</span>
-            <a href="" class="btn btn-default" ng-click="add(product, -1)">-</a>
+          <div class="row">
+            <div class="xs-col-9">
+              <product item="product"></product>
+            </div>
+            <div class="xs-col-3">
+              <a class="btn btn-default btn-xs" href="" ng-click="add(product, 1)">+</a>
+              <span>{{product.count || 0}}</span>
+              <a href="" class="btn btn-default btn-xs" ng-click="add(product, -1)">-</a>
+            </div>
           </div>
+
           <hr>
         </li>
       </ul>

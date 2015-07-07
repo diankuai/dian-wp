@@ -20,6 +20,15 @@ ul, ol {
   text-align: center;
 }
 
+.nav.nav-pills.nav-stacked {
+  li > a {
+    @extend .btn;
+  }
+  .active > a {
+    @extend .btn-default;
+  }
+}
+
 footer {
   position: fixed;
   bottom: 15px;
@@ -33,12 +42,22 @@ footer {
   vertical-align: middle;
   cursor: pointer;
   border: 0;
-  color: white;
-  background-color: $btn-default-bg;
-  border-color: #4cae4c;
+  color: black;
+  background-color: white;
   padding: 10px 16px;
   line-height: 1.33;
   border-radius: 6px;
+}
+
+.btn.btn-default {
+  color: white;
+  background-color: $btn-default-bg;
+}
+
+.btn.btn-xs {
+  padding: 5px 8px;
+  line-height: 1;
+  border-radius: 3px;
 }
 
 //utils begin
@@ -76,6 +95,11 @@ footer {
 
 .xs-col-6 {
   width: 100% / 12 * 6;
+  float: left;
+}
+
+.xs-col-9 {
+  width: 100% / 12 * 9;
   float: left;
 }
 //grid end
