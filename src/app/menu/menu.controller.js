@@ -89,7 +89,11 @@ angular.module('dian')
       console.log(res.data);
       $scope.cart = res.data;
       cart_id = $scope.cart.id;
-      $scope.products = $scope.cart.cart_items || [];
+      $scope.products = utils.map($scope.cart.cart_items || [], function(v) {
+        //extend product into cart_item for ng-repeat
+        delete v.product.id;
+        return angular.extend(v, v.product);
+      });
       $scope.total_price = utils.listItemSum($scope.products, 'price');
       $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
     });
