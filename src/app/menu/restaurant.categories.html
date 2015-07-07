@@ -15,14 +15,17 @@
     <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab === {{$index}}">
       <ul>
         <li ng-repeat="product in category.products">
-          <div><img src="javascript:;" alt=""></div>
-          <div>{{product.name}}</div>
-          <div>{{product.price}}元每{{product.unit}}</div>
-          <div>
-            <a class="btn btn-default btn-xs" href="" ng-click="add(product, 1)">+</a>
-            <span>{{product.count || 0}}</span>
-            <a href="" class="btn btn-default btn-xs" ng-click="add(product, -1)">-</a>
+          <div class="row">
+            <div class="xs-col-9">
+              <product item="product"></product>
+            </div>
+            <div class="xs-col-3">
+              <a class="btn btn-default btn-xs" href="" ng-click="add(product, 1)">+</a>
+              <span>{{product.count || 0}}</span>
+              <a href="" class="btn btn-default btn-xs" ng-click="add(product, -1)">-</a>
+            </div>
           </div>
+
           <hr>
         </li>
       </ul>
