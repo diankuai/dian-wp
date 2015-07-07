@@ -4,7 +4,8 @@ angular.module('dian')
 .directive('product', function() {
   return {
     scope: {
-      item: '='
+      item: '=',
+      unit: '='
     },
     templateUrl: 'app/directives/product.html'
   };
