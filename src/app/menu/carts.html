@@ -31,13 +31,22 @@
     <div ng-if="!order.ok" class="row text-center">
       <a href="" class="btn btn-default" ng-click="placeOrder()">下单</a>
     </div>
-    <div ng-if="!order.ok && restaurant.wifi_name" class="text-center">
+    <!--<div ng-if="!order.ok && restaurant.wifi_name" class="text-center">-->
+    <div class="text-center">
       <div>
         餐厅wifi
         <br>
         名称：{{restaurant.wifi_name}}
         <br>
         密码：{{restaurant.wifi_password}}
+      </div>
+      <div>
+        <div>玩游戏，赢奖励</div>
+        <div>
+          关注餐厅公众号<br>
+          <img src="assets/images/angular.png" alt="" class="pull-left"><br>
+          按住图片，识别二维码
+        </div>
       </div>
     </div>
 
