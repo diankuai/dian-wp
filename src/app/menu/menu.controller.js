@@ -21,8 +21,8 @@ angular.module('dian')
       });
   })
 
-.controller('MenuCtrl', ['config', '$scope', '$http',
-  function(config, $scope, $http) {
+.controller('MenuCtrl', ['weixin', 'config', '$scope', '$http',
+  function(weixin, config, $scope, $http) {
     $http.get(config.api_url + '/wp/trade/list-order-now/', {
       params: {
         wp_openid: 123
@@ -32,6 +32,14 @@ angular.module('dian')
       console.log(res.data);
       $scope.orders = res.data;
     });
+
+    $scope.scan = function() {
+      weixin.safeExec('scanQRCode').then(function(res) {
+        console.log('scanQRCode');
+        console.log(res);
+      });
+    };
+
   }
 ])
 
