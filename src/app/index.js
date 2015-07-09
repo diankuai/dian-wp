@@ -58,4 +58,31 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
     GLOBAL = 123;
   })
   */
+
+  .factory('memberIdInterceptor', ['$q', '$cookies', function ($q, $cookies) {
+    return {
+      request: function (config) {
+        config.headers = config.headers || {};
+        if ($cookies.member_id) {
+          config.headers['X-Member-Id'] = $cookies.member_id;
+        }
+        return config;
+      }
+    };
+  }])
+
+  .config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('memberIdInterceptor');
+  }])
+
+  .run(['$http', '$cookies', '$location', 'config', function($http, $cookies, $location, config){
+    var code = $location.search().code;
+    $http.get(config.api_url + '/wp/account/get-member/', {
+      params: {
+        code: code 
+      }
+    }).then(function(res) {
+      $cookies.member_id = res.data.wp_openid;
+    });
+  }])
 ;
