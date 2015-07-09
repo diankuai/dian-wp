@@ -1,21 +1,22 @@
+/* global wx */
 'use strict';
 
 angular.module('dian')
-.factory('wx', ['config', '$http', '$q', '$location',
+.factory('weixin', ['config', '$http', '$q', '$location',
  function(config, $http, $q, $location) {
-  var wx = {};
+  var weixin;
+
+  weixin = {};
 
   /*
    * after config, and with a ready test, then exec our function
-   *
-   * wx.safeExec('scanQRCode').then(function(res) {
-   *
+   * weixin.safeExec('scanQRCode').then(function(res) {
    * });
   */
   function safeExec(apiName, apiArgs) {
     var okDefer = $q.defer();
-    //wxSigInfo($location.absUrl()).then(configWx).then(function() {
-    wxSigInfo('http://localhost:3000').then(configWx).then(function() {
+    wxSigInfo($location.absUrl()).then(configWx).then(function() {
+    //wxSigInfo('http://localhost:3000').then(configWx).then(function() {
       wx.ready(function() {
         wx[apiName] ? wx[apiName](angular.extend(apiArgs, {
         success: function(res) {
@@ -53,13 +54,14 @@ angular.module('dian')
   }
 
   //return weixin code which is provided by weixin callback url
-  function code() {
-    return $location.search()[code] || '';
+  //wxParam('code') return code of weixin
+  function wxParam(name) {
+    return $location.search()[name] || '';
   }
 
-  wx.safeExec = safeExec;
-  wx.code = code;
-  return wx;
+  weixin.safeExec = safeExec;
+  weixin.wxParam = wxParam;
+  return weixin;
 }]);
 
 
