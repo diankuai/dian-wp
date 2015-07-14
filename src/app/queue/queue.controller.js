@@ -3,6 +3,9 @@
 angular.module('dian')
   .config(function($routeProvider) {
     $routeProvider
+      .when('/queue_history/', {
+        templateUrl: 'app/queue/queue_history.html'
+      })
       .when('/queue_items/:id', {
         templateUrl: 'app/queue/queue_items.html',
         controller: 'QueueItemsCtrl'
