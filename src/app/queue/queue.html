@@ -1,12 +1,12 @@
 <div class="container" id="queue">
   <div class="row"><h1>当前排队: X家</h1></div>
   <hr>
-  <ul>
+  <ul ng-repeat="item in queue">
     <li>
       <div class="pull-left">
-        <div class="row">餐厅： XXXX</div>
-        <div class="row">号码: 小桌X号</div>
-        <div class="row">取号时间： XXXX</div>
+        <div class="row">餐厅： {{item.restaurant.name}}</div>
+        <div class="row">号码: {{item.table_type.name}}</div>
+        <div class="row">取号时间： {{item.create_time}}</div>
       </div>
       <a ng-href="#/menu/orders/{{order.id}}" class="btn btn-default pull-right">详情</a>
     </li>
