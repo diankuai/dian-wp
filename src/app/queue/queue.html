@@ -1,5 +1,20 @@
-<div class="container">
-
-  <h1>排队</h1>
-
+<div class="container" id="queue">
+  <div class="row"><h1>当前排队: X家</h1></div>
+  <hr>
+  <ul ng-repeat="item in queue">
+    <li>
+      <div class="pull-left">
+        <div class="row">餐厅： {{item.restaurant.name}}</div>
+        <div class="row">号码: {{item.table_type.name}}</div>
+        <div class="row">取号时间： {{item.create_time}}</div>
+      </div>
+      <a ng-href="#/queue_items/{{item.id}}" class="btn btn-default pull-right">详情</a>
+    </li>
+  </ul>
+  <footer class="row">
+    <div class="btn-group">
+      <a href="#/restaurant/catogaries" class="btn btn-default">扫码排队</a>
+      <a href="#/orders/history "class="btn btn-default">排队历史</a>
+    </div>
+  </footer>
 </div>
