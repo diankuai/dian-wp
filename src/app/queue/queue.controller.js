@@ -4,12 +4,20 @@ angular.module('dian')
   .config(function($routeProvider) {
     $routeProvider
       .when('/queue_history/', {
-        templateUrl: 'app/queue/queue_history.html'
+        templateUrl: 'app/queue/queue_history.html',
+        controller: 'QueueHitstoryCtrl'
       })
       .when('/queue_items/:id', {
         templateUrl: 'app/queue/queue_items.html',
         controller: 'QueueItemsCtrl'
       });
+  })
+  .controller('QueueHitstoryCtrl', function(config, $scope, $http) {
+    $http.get(config.api_url + '/wp/registration/list-history-registration/').then(function(res) {
+      console.log('queue history');
+      console.log(res.data);
+      $scope.queue = res.data;
+    });
   })
   .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
     var queue_item_id;
