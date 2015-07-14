@@ -1,0 +1,15 @@
+<div id="queue_history" class="container">
+  <header title="排队历史"></header>
+  <hr>
+  <ul ng-repeat="item in queue">
+    <li>
+      <div class="row">
+        <div class="pull-left">
+          <div class="row">餐厅： {{item.restaurant.name}}</div>
+          <div class="row">开始时间： {{item.create_time}}</div>
+          <div class="row">状态：{{item.status}}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
