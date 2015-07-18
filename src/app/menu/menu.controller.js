@@ -75,9 +75,10 @@ angular.module('dian')
       params: {
         wp_openid: 123
       }
-    }).then(function() {
     }).then(function(res) {
-      $scope.orders = res.data;
+      console.log('fetch history orders');
+      console.log(res.data);
+      $scope.orders = res.data || [];
     });
   }
 ]);
