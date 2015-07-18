@@ -31,6 +31,9 @@ angular.module('dian')
       }];
     });
   })
+  .controller('QueueJoinCtrl', function($scope, $http) {
+    
+  })
   .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
     var queue_item_id;
     console.log('queue item id');
