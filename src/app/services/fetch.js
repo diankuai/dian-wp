@@ -23,7 +23,7 @@ angular.module('dian')
           //while openid is for restaurant, wp_openid is for member
           'restaurant-cart': function(route_data, params) {
             return $http.get(
-              config.api_url + '/wp/trade/get-cart-by-restaurant/' + route_data.table_id, {
+              config.api_url + '/wp/trade/get-cart-by-restaurant/' + route_data.table_id + '/', {
               params: params
             });
           }
