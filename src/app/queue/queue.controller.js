@@ -13,10 +13,19 @@ angular.module('dian')
       });
   })
   .controller('QueueHitstoryCtrl', function(config, $scope, $http) {
-    $http.get(config.api_url + '/wp/registration/list-history-registration/').then(function(res) {
+    $http.get(config.api_url + '/wp/registration/list-history-registration/')
+    .then(function(res) {
       console.log('queue history');
       console.log(res.data);
       $scope.queue = res.data;
+
+      //for debug
+      $scope.queue = [{
+        restaurant: {
+          name: 'this is restaurant'
+        },
+        id: 1
+      }];
     });
   })
   .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
@@ -42,10 +51,12 @@ angular.module('dian')
       $scope.queue = res.data || [];
       
     });
+    /* for debug
     $scope.queue = [{
-        restaurant: {
-          name: 'this is restaurant'
-        },
-        id: 1
-      }];
+      restaurant: {
+        name: 'this is restaurant'
+      },
+      id: 1
+    }];
+    */
   });
