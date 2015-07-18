@@ -8,7 +8,11 @@ angular.module('dian')
         controller: 'QueueHitstoryCtrl'
       })
       .when('/queue/join/', {
-        templateUrl: 'app/queue/queue_join.html'
+        templateUrl: 'app/queue/queue_join.html',
+        controller: 'QueueJoinCtrl'
+      })
+      .when('/queue/join/do', {
+        templateUrl: 'app/queue/queue_join_do.html'
       })
       .when('/queue_items/:id', {
         templateUrl: 'app/queue/queue_items.html',
@@ -31,9 +35,34 @@ angular.module('dian')
       }];
     });
   })
-  .controller('QueueJoinCtrl', function($scope, $http) {
+
+  .controller('QueueJoinCtrl', function(config, $scope, $http, $location) {
+    var restaurant_openid;
+
+    restaurant_openid = $location.search('restaurant_openid') || '';
+    restaurant_openid = 'can123';//for debug
+    $http.get(config.api_url + '/wp/restaurant/get-restaurant/', {
+      params: {
+        openid: restaurant_openid
+      }
+    })
+    .then(function(res) { 
+      console.log('restaurant');
+      console.log(res.data);
+      $scope.restaurant = res.data;
+    });
     
+    $http.get(config.api_url + '/wp/table/list-table-type-by-restaurant/', {
+      params: {
+        openid: restaurant_openid
+      }
+    }).then(function(res) {
+      console.log('table types');
+      console.log(res.data);
+      $scope.table_types = res.data;
+    });
   })
+
   .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
     var queue_item_id;
     console.log('queue item id');

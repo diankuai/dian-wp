@@ -1,22 +1,20 @@
 <div id="queue_join">
-  <header title="{{queue_item.restaurant.name}}"></header>
+  <header title="{{restaurant.name}}"></header>
   <hr>
   <div class="row pull-left">
     please select table
   </div>
   <hr>
-  <div class="row text-center">
-    small table X people
-  </div>
-  <hr>
-  <div class="row text-center">
-    small table X people
-  </div>
-  <hr>
-  <div class="row text-center">
-    small table X people
-  </div>
-  <hr>
+  <ul ng-repeat="table_type in table_types">
+    <li>
+      <div class="row text-center">
+    {{table_type.name}} table
+     {{table_type.min_seats}}
+      to {{table_type.max_seats}} people
+      </div>
+      <hr>
+    </li> 
+  </ul>
   <footer class="row text-center">
     <a href="#/queue/join/do" class="btn btn-default">join</a>
   </footer> 
