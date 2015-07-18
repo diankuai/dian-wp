@@ -7,6 +7,9 @@ angular.module('dian')
         templateUrl: 'app/queue/queue_history.html',
         controller: 'QueueHitstoryCtrl'
       })
+      .when('/queue/join/', {
+        templateUrl: 'app/queue/queue_join.html'
+      })
       .when('/queue_items/:id', {
         templateUrl: 'app/queue/queue_items.html',
         controller: 'QueueItemsCtrl'
