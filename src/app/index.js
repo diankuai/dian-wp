@@ -1,7 +1,8 @@
+/* global window, document, ActiveXObject, XMLHttpRequest */
 'use strict';
 
 function setMemberIdToCookie() {
-  /* 
+  /*
    * 从query中取code，获取用户信息，并设置cookie
    */
 
@@ -13,7 +14,7 @@ function setMemberIdToCookie() {
   if (code) {
     code = (code + '').replace(/code=/,'');
   }else {
-    alert('参数错误');
+    console.warn('cannot find weixin code in current url');
   }
 
   var xmlhttp;
@@ -22,22 +23,23 @@ function setMemberIdToCookie() {
     xmlhttp = new XMLHttpRequest();
   }else {
     // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
   }
   xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==201) // 201?
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 201) // 201?
     {
-      document.cookie = "member_id=" + JSON.parse(xmlhttp.responseText).wp_openid;
+      document.cookie = 'member_id=' + JSON.parse(xmlhttp.responseText).wp_openid;
     }
-  }
-  var api_url = 'http://dev.dk26.com:8080' + '/wp/account/get-member/?code=' + code;
-  xmlhttp.open("GET", api_url, false);
+  };
+  var api_url = 'http://api.dk26.com:8080' + '/wp/account/get-member/?code=' + code;
+  xmlhttp.open('GET', api_url, false);
   xmlhttp.send();
-};
+}
 setMemberIdToCookie();
 
-//for dianApp code reuse
-angular.module('dianApp', ['dian']);
+//for dianApp code reuse, create a new module,
+//TODO: extract common module for dianApp and dian
+angular.module('dianApp', []);
 
 angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
 
