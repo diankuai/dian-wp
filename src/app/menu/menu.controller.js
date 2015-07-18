@@ -21,8 +21,8 @@ angular.module('dian')
       });
   })
 
-.controller('MenuCtrl', ['weixin', 'config', '$scope', '$http',
-  function(weixin, config, $scope, $http) {
+.controller('MenuCtrl', ['weixin', 'config', '$scope', '$http', '$location',
+  function(weixin, config, $scope, $http, $location) {
     $http.get(config.api_url + '/wp/trade/list-order-now/', {
       params: {
         wp_openid: 123
@@ -33,10 +33,21 @@ angular.module('dian')
       $scope.orders = res.data;
     });
 
-    $scope.scan = function() {
+    $scope.scan_qr_code_menu = function() {
       weixin.safeExec('scanQRCode').then(function(res) {
         console.log('scanQRCode');
         console.log(res);
+        //after get qrcode result, should change url with query string
+        $location.path('/#/restaurant/categories').search({
+          state: 123,
+          code: 'weixin_code'
+        });
+      });
+      //in weixin client, comment these code
+      $location.path('restaurant/catogaries')
+      .search({
+        state: 123,
+        code: 'weixin_code'
       });
     };
 
