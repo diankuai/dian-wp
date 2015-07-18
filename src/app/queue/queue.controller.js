@@ -51,7 +51,7 @@ angular.module('dian')
       console.log(res.data);
       $scope.restaurant = res.data;
     });
-    
+
     $http.get(config.api_url + '/wp/table/list-table-type-by-restaurant/', {
       params: {
         openid: restaurant_openid
@@ -61,6 +61,18 @@ angular.module('dian')
       console.log(res.data);
       $scope.table_types = res.data;
     });
+
+    $scope.join = function () {
+      $http.post(config.api_url + '/wp/registration/confirm-table-type/', {
+        restaurant_openid: restaurant_openid,
+        phone: '123',
+        wp_openid: 123//for debug
+      }).then(function(res) {
+        console.log('join to queue ok');
+        console.log(res.data);
+        $location.path('#/queue/join/do');
+      });
+    };
   })
 
   .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
