@@ -13,6 +13,7 @@ function setMemberIdToCookie() {
 
   if (code) {
     code = (code + '').replace(/code=/,'');
+    code = 123;//for debug
   }else {
     console.warn('cannot find weixin code in current url');
   }
@@ -103,7 +104,8 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
         config.headers = config.headers || {};
         if ($cookies.member_id) {
           config.headers['X-Member-Id'] = $cookies.member_id;
-        };
+        }
+        config.headers['X-Member-Id'] = 123;// for debug
         return config;
       }
     };
