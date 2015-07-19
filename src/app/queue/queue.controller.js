@@ -46,7 +46,7 @@ angular.module('dian')
         openid: restaurant_openid
       }
     })
-    .then(function(res) { 
+    .then(function(res) {
       console.log('restaurant');
       console.log(res.data);
       $scope.restaurant = res.data;
@@ -64,10 +64,13 @@ angular.module('dian')
     $scope.models = {};//for table_type_selected
 
     $scope.join = function () {
+      if (!$scope.models.table_type_selected) {
+        return;
+      }
       $http.post(config.api_url + '/wp/registration/confirm-table-type/', {
         restaurant_openid: restaurant_openid,
         phone: '123',
-        wp_openid: 123,//for debug
+        wp_openid: '123',//for debug
         table_type: $scope.models.table_type_selected
       }).then(function(res) {
         console.log('join to queue ok');
@@ -98,7 +101,7 @@ angular.module('dian')
       console.log('queue list');
       console.log(res.data);
       $scope.queue = res.data || [];
-      
+
     });
     /* for debug
     $scope.queue = [{
