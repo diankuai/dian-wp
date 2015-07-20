@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('dian')
-  .directive('goback', ['$window', function($window) {
+  .directive('goback', ['$location', '$window', function($location, $window) {
     return function(scope, element, attrsctrl) {
       element.on('click', function() {
-        $window.history.back();
+        attrsctrl.goback ?
+          $window.location = attrsctrl.goback : //usage: /#/path/to
+          $window.history.back();
         //scope.apply();
       });
     };
