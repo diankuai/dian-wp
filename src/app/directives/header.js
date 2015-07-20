@@ -3,8 +3,10 @@
 angular.module('dian')
 .directive('header', function() {
   return {
+    priority: 100,
     scope: {
-      title: '@'
+      title: '@',
+      goback: '@'
     },
     templateUrl: 'app/directives/header.html'
   };
