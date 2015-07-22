@@ -15,14 +15,34 @@ angular.module('dian')
   */
   function safeExec(apiName, apiArgs) {
     var okDefer = $q.defer();
-    wxSigInfo().then(configWx).then(function() {
+    //wxSigInfo().then(configWx).then(function() {
+    wxSigInfo().then(function(sigInfo) {
+      var configData;
     //wxSigInfo('http://localhost:3000').then(configWx).then(function() {
+      configData = configData = angular.extend({debug: true, jsApiList: ['scanQRCode']}, sigInfo);
+      alert('config params')
+      alert(JSON.stringify(configData));
+      wx.config(configData);
       wx.ready(function() {
-        wx[apiName] ? wx[apiName](angular.extend(apiArgs, {
+	alert('wx ready callback exec begin');
+	alert('wx interface is ' + apiName);
+        wx[apiName] ? wx[apiName](angular.extend(apiArgs || {}, {
+	error: function(res) {
+	  alert('wx interface ' + apiName + 'error');
+	  alert(JSON.stringify(res));
+	  okDefer.reject(res);
+	}, 
         success: function(res) {
-          okDefer(res);
+	  alert('wx interface ' + apiName + 'ok');
+	  alert(JSON.stringify(res));
+          okDefer.resolve(res);
         }})) : angular.noop();
       });
+      wx.error(function(res) {
+	alert('wx config error');
+	alert(JSON.stringify(res));
+        odDefer.reject(res);
+      })
     });
     return okDefer.promise;
   }
@@ -33,8 +53,12 @@ angular.module('dian')
         url: url || $location.absUrl()
       }).then(function(res) {
         var data;
+	alert('wxSigInfor');
+	alert(JSON.stringify(res.data));
         reslove((data = res.data) ? res.data : {});
       }, function(res) {
+	alert('wxSigInfor error');
+	alert(res);
         reject(res);
       });
     });
@@ -44,12 +68,17 @@ angular.module('dian')
     sigInfo ? sigInfo.jsApiList = ['scanQRCode'] : angular.noop();
     wx.config(sigInfo);
     return $q(function(rs, rj) {
+      rs();
+      /*
       wx.ready(function() {
+	alert('configWx ok');
         rs();
       });
       wx.error(function() {
+	alert('configWx error');
         rj();
       });
+      */
     });
   }
 
