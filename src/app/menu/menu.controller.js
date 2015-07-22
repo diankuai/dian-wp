@@ -44,11 +44,13 @@ angular.module('dian')
         });
       });
       //in weixin client, comment these code
+      /*
       $location.path('restaurant/catogaries')
       .search({
         state: 123,
         code: 'weixin_code'
       });
+      */
     };
 
   }
