@@ -4,20 +4,27 @@
       +发布图片
     </button>
   </div>
+  <div class="row gallery">
+    <ul>
+      <li ng-repeat="photo in photos" ng-class="{true: 'photo-current'}[index === {{$index}}]">
+        <div class="row text-center">
+          <div class="picture-container">
+            <img src="javascript:;" alt="" img-key="a23c4be3f24a82686c7e1475d2f48015">
+          </div>
+        </div>
 
-  <div class="row text-center">
-    <div class="picture-container">
-      <img src="javascript:;" alt="" img-key="a23c4be3f24a82686c7e1475d2f48015">
-    </div>
+        <div class="row">
+          <div class="pull-left">餐厅或美食名称</div>
+          <div class="pull-right">
+            <img src="javascript:;" alt="发布者头像">
+            <span>发布者</span>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <div class="row">
-    <div class="pull-left">餐厅或美食名称</div>
-    <div class="pull-right">
-      <img src="javascript:;" alt="发布者头像">
-      <span>发布者</span>
-    </div>
-  </div>
+
 
   <div class="row text-center">
     <div class="col-xs-4">
@@ -38,3 +45,4 @@
   </div>
 
 </div>
+

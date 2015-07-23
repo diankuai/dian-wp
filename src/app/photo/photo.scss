@@ -1,4 +1,12 @@
 #photo-index {
+  .gallery {
+    ul > li {
+      display: none;
+    }
+    .photo-current {
+      display: block;
+    }
+  }
   .picture-container {
     min-height: 200px;
     margin: 15px 0;
