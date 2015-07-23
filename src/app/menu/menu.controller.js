@@ -37,6 +37,8 @@ angular.module('dian')
       weixin.safeExec('scanQRCode').then(function(res) {
         console.log('scanQRCode');
         console.log(res);
+	alert('scanQRCode');
+	alert(rs);
         //after get qrcode result, should change url with query string
         $location.path('/#/restaurant/categories').search({
           state: 123,
