@@ -46,8 +46,8 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
 
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/photo', {
-        templateUrl: 'app/photo/photo.html',
+      .when('/photo/index', {
+        templateUrl: 'app/photo/index.html',
         controller: 'PhotoCtrl'
       })
       .when('/menu', {
