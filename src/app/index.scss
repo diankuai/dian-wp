@@ -60,6 +60,11 @@ footer {
   border-radius: 3px;
 }
 
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
 //utils begin
 .text-center {
   text-align: center!important;
@@ -87,6 +92,10 @@ footer {
 //grid begin
 .row {
   @include clear-fix;
+}
+.col-xs-4 {
+  width: 100% / 12 * 4;
+  float: left;
 }
 .xs-col-3 {
   width: 100% / 12 * 3;

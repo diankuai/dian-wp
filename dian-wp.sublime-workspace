@@ -19,7 +19,23 @@
 			"file": "src/app/index.js",
 			"settings":
 			{
-				"buffer_size": 3231,
+				"buffer_size": 3237,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/app/main/main.html",
+			"settings":
+			{
+				"buffer_size": 264,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/app/photo/index.html",
+			"settings":
+			{
+				"buffer_size": 333,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +59,7 @@
 			"file": "src/app/menu/menu.controller.js",
 			"settings":
 			{
-				"buffer_size": 2466,
+				"buffer_size": 2484,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +67,23 @@
 			"file": "src/app/queue/queue.controller.js",
 			"settings":
 			{
-				"buffer_size": 2024,
+				"buffer_size": 3200,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/app/photo/photo.controller.js",
+			"settings":
+			{
+				"buffer_size": 284,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/index.html",
+			"settings":
+			{
+				"buffer_size": 2010,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +91,7 @@
 			"file": "src/app/queue/queue_join.html",
 			"settings":
 			{
-				"buffer_size": 494,
+				"buffer_size": 739,
 				"line_ending": "Unix"
 			}
 		},
@@ -72,18 +104,10 @@
 			}
 		},
 		{
-			"file": "src/app/queue/queue_items.html",
-			"settings":
-			{
-				"buffer_size": 356,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/app/queue/queue.html",
 			"settings":
 			{
-				"buffer_size": 663,
+				"buffer_size": 714,
 				"line_ending": "Unix"
 			}
 		},
@@ -121,19 +145,6 @@
 				"buffer_size": 806,
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"contents": "{\n	// A list of URLs that each contain a JSON file with a list of repositories.\n	// The repositories from these channels are placed in order after the\n	// repositories from the \"repositories\" setting\n	\"channels\": [\n		\"https://packagecontrol.io/channel_v3.json\"\n	],\n\n	// A list of URLs that contain a packages JSON file. These repositories\n	// are placed in order before repositories from the \"channels\"\n	// setting\n	\"repositories\": [],\n\n	// A list of packages to install pre-release versions for. Versions\n	// under 1.0.0 are not considered pre-release, only those using the SemVer\n	// -prerelease suffixes will be ignored if the package is not in this\n	// list.\n	\"install_prereleases\": [],\n\n	// If debugging information for HTTP/HTTPS connections should be printed\n	// to the Sublime Text console\n	\"debug\": false,\n\n	// This helps solve naming issues where a repository it not named the\n	// same as the package should be. This is primarily only useful for\n	// GitHub and BitBucket repositories. This mapping will override the\n	// mapping that is retrieved from the repository channels.\n	\"package_name_map\": {},\n\n	// If package install, upgrade and removal info should be submitted to\n	// the channel for aggregated statistics\n	\"submit_usage\": true,\n\n	// The URL to post install, upgrade and removal notices to\n	\"submit_url\": \"https://packagecontrol.io/submit\",\n\n	// If packages should be automatically upgraded when ST starts\n	\"auto_upgrade\": true,\n\n	// If missing packages should be automatically installed when ST starts\n	\"install_missing\": true,\n\n	// If a package was installed by Package Control (has a\n	// package-metadata.json file) but is not in installed_packages, remove it\n	// based upon the assumption that it was removed on another machine and\n	// the Package Control.sublime-settings file was synced to this machine.\n	\"remove_orphaned\": true,\n\n	// The minimum frequency in hours in which to check for automatic upgrades,\n	// setting this to 0 will always check for automatic upgrades\n	\"auto_upgrade_frequency\": 1,\n\n	// Packages to not auto upgrade\n	\"auto_upgrade_ignore\": [],\n\n	// Timeout for downloading channels, repositories and packages. Doesn't\n	// have an effect on Windows due to a bug in WinINet.\n	\"timeout\": 30,\n\n	// The number of seconds to cache repository and package info for\n	\"cache_length\": 300,\n\n	// An HTTP proxy server to use for requests. Not normally used on Windows\n	// since the system proxy configuration is utilized via WinINet. However,\n	// if WinINet is not working properly, this will be used by the Urllib\n	// downloader, which acts as a fallback.\n	\"http_proxy\": \"\",\n	// An HTTPS proxy server to use for requests - this will inherit from\n	// http_proxy if it is set to \"\" or null and http_proxy has a value. You\n	// can set this to false to prevent inheriting from http_proxy. Not\n	// normally used on Windows since the system proxy configuration is\n	// utilized via WinINet. However, if WinINet is not working properly, this\n	// will be used by the Urllib downloader, which acts as a fallback.\n	\"https_proxy\": \"\",\n\n	// Username and password for both http_proxy and https_proxy. May be used\n	// with WinINet to set credentials for system-level proxy config.\n	\"proxy_username\": \"\",\n	\"proxy_password\": \"\",\n\n	// If HTTP responses should be cached to disk\n	\"http_cache\": true,\n\n	// Number of seconds to cache HTTP responses for, defaults to one week\n	\"http_cache_length\": 604800,\n\n	// User agent for HTTP requests. If \"%s\" is present, will be replaced\n	// with the current version.\n	\"user_agent\": \"Package Control v%s\",\n\n	// Setting this to true will cause Package Control to ignore all git\n	// and hg repositories - this may help if trying to list packages to install\n	// hangs\n	\"ignore_vcs_packages\": false,\n\n	// Custom path(s) to \"git\" binary for when it can't be automatically\n	// found on the system and a package includes a .git metadata directory.\n	// Supports more than one path to allow users to sync settings across\n	// operating systems.\n	\"git_binary\": [],\n\n	// This should NOT contain the name of the remote or branch - that will\n	// be automatically determined.\n	\"git_update_command\": [\"pull\", \"--ff\", \"--commit\"],\n\n	// Custom path(s) to \"hg\" binary for when it can't be automatically\n	// found on the system and a package includes a .hg metadata directory.\n	// Supports more than one path to allow users to sync settings across\n	// operating systems.\n	\"hg_binary\": [],\n\n	// For HG repositories, be sure to use \"default\" as the remote URL.\n	// This is the default behavior when cloning an HG repo.\n	\"hg_update_command\": [\"pull\", \"--update\"],\n\n	// Additional packages to ignore when listing unmanaged packages.\n	\"unmanaged_packages_ignore\": [],\n\n	// Directories to ignore when creating a package\n	\"dirs_to_ignore\": [\n		\".hg\", \".git\", \".svn\", \"_darcs\", \"CVS\"\n	],\n\n	// Files to ignore when creating a package\n	\"files_to_ignore\": [\n		\"*.pyc\", \".hgignore\", \".gitignore\", \".bzrignore\",\n		\"*.sublime-project\", \"*.sublime-workspace\", \"*.tmTheme.cache\"\n	],\n\n	// Files to include, even if they match a pattern in files_to_ignore\n	\"files_to_include\": [],\n\n	// When a package is created, copy it to this folder - defaults to Desktop\n	\"package_destination\": \"\",\n\n	// A way to create different packaging profiles for different types of\n	// package releases, such as for different platforms or binary-only\n	// releases.\n	//\n	// The key of the object will be the profile name and a list of them will\n	// be presenting when running the \"Create Package File\" command. The\n	// profile \"Default\" will use the top-level version on the following\n	// settings:\n	//\n	// - \"dirs_to_ignore\"\n	// - \"files_to_ignore\"\n	// - \"files_to_include\"\n	// - \"package_destination\"\n	//\n	// If a profile does not include one of those three setting, it will fall\n	// back to the top-level settings.\n	\"package_profiles\": {\n		\"Binaries Only\": {\n			// Exclude all .py files, but consequently include all .pyc files\n			\"files_to_ignore\": [\n				\"*.py\", \".hgignore\", \".gitignore\", \".bzrignore\",\n				\"*.sublime-project\", \"*.sublime-workspace\", \"*.tmTheme.cache\"\n			],\n\n			// Include __init__.py so Sublime Text will load the package\n			\"files_to_include\": [\n				\"__init__.py\"\n			]\n		}\n	},\n\n	// Enable the ability to run the tests - this is only for development\n	\"enable_tests\": false\n}\n",
-			"file": "/home/jz/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 6287,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
-			}
 		}
 	],
 	"build_system": "",
@@ -164,7 +175,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 416.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -189,15 +200,15 @@
 		"/home/jz/workspace/dian-wp",
 		"/home/jz/workspace/dian-wp/src",
 		"/home/jz/workspace/dian-wp/src/app",
+		"/home/jz/workspace/dian-wp/src/app/photo",
 		"/home/jz/workspace/dian-wp/src/app/queue",
-		"/home/jz/workspace/dian-server/dian",
-		"/home/jz/workspace/dian-server/dian/dian",
-		"/home/jz/workspace/dian-server/dian/registration",
-		"/home/jz/workspace/dian-server/dian/wechat",
-		"/home/jz/workspace/dian-server/dian/wp"
+		"/home/jz/workspace/dian-wp/src/app/services",
+		"/home/jz/workspace/dian-wp/src/pages",
+		"/home/jz/workspace/dian-wp/src/pages/register"
 	],
 	"file_history":
 	[
+		"/home/jz/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/home/jz/workspace/dian-wp/e2e/menu.orders.history.spec.js",
 		"/home/jz/workspace/dian-wp/src/app/menu/menu.controller.js",
 		"/home/jz/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
@@ -205,12 +216,11 @@
 		"/home/jz/workspace/dian-wp/node_modules/main-bower-files/lib/package_collection.js",
 		"/home/jz/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/home/jz/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/jz/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
-		"/home/jz/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings"
+		"/home/jz/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings"
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 50.0
 	},
 	"find_in_files":
 	{
@@ -224,6 +234,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"index",
 			"\n        "
 		],
 		"highlight": true,
@@ -242,7 +253,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -251,15 +262,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3231,
+						"buffer_size": 3237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								846,
-								846
+								1400,
+								1400
 							]
 						],
 						"settings":
@@ -269,14 +280,74 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 714.0,
+						"translation.y": 1326.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/app/main/main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238,
+								238
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/app/photo/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								304,
+								304
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "src/app/menu/cart.controller.js",
 					"semi_transient": false,
 					"settings":
@@ -302,11 +373,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "/home/jz/.config/sublime-text-3/Packages/JSHint Gutter/.jshintrc",
 					"semi_transient": false,
 					"settings":
@@ -332,24 +403,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "src/app/menu/menu.controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2466,
+						"buffer_size": 2484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1815,
-								1815
+								378,
+								378
 							]
 						],
 						"settings":
@@ -359,27 +430,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1526.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/app/queue/queue.controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2024,
+						"buffer_size": 3200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1302,
-								1302
+								583,
+								583
 							]
 						],
 						"settings":
@@ -389,27 +460,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1530.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/app/photo/photo.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 28.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/app/queue/queue_join.html",
+					"buffer": 8,
+					"file": "src/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 494,
+						"buffer_size": 2010,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								1990,
+								1990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 612.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/app/queue/queue_join.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -422,11 +553,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "src/app/queue/queue_join_do.html",
 					"semi_transient": false,
 					"settings":
@@ -452,52 +583,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/app/queue/queue_items.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 356,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								348,
-								348
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
+					"buffer": 11,
 					"file": "src/app/queue/queue.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 663,
+						"buffer_size": 714,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								655,
-								655
+								0,
+								0
 							]
 						],
 						"settings":
@@ -514,7 +617,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 12,
 					"file": "src/app/queue/queue_history_items.html",
 					"semi_transient": false,
 					"settings":
@@ -532,17 +635,19 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 13,
 					"file": "src/app/queue/queue_history.html",
 					"semi_transient": false,
 					"settings":
@@ -568,11 +673,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 14,
 					"file": "src/app/config.js",
 					"semi_transient": false,
 					"settings":
@@ -596,11 +701,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 15,
 					"file": "/home/jz/.config/sublime-text-3/Packages/JSHint Gutter/JSHint.sublime-settings",
 					"semi_transient": false,
 					"settings":
@@ -626,35 +731,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "/home/jz/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3102,
-								3102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2346.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -666,7 +743,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 50.0
 	},
 	"layout":
 	{
