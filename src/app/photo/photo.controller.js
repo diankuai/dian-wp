@@ -11,10 +11,11 @@ angular.module('dian')
     */
   })
   .controller('PhotoCtrl', function (config, $http, $scope, $q) {
-    var photos_limit = 5;
+    var photos_liked;
 
+    photos_liked = {};
     getPhotos();//先获取几张照片
-    $scope.photos = [{alt: 123}, {alt: 456}, {alt: 123}, {alt: 123}, {alt: 123}];//for debug
+    $scope.photos = [{id: 1, alt: 123}, {alt: 456}, {alt: 123}, {alt: 123}, {alt: 123}];//for debug
     $scope.index = 0;
 
     $scope.next_photo = function() {
@@ -40,6 +41,25 @@ angular.module('dian')
         }
       }
     });
+
+    $scope.like = function(id) {
+      if (!angular.isNumber(id)) {
+        return ;
+      }
+      if (photos_liked[id]) {//已经赞过
+        return;
+      }
+      $http.get(config.api_url + '/wp/photo/like-photo/' + id + '/')
+      .then(function(res) {
+        console.log('good photo!');
+        console.log(res.data);
+        photos_liked[id] = true;
+      })
+      .catch(function(res) {
+        console.warn('error when like a photo');
+        console.log(res.data);
+      });
+    };
 
     function getPhotos() {
       //return $q.when({data: [{a: 123}, {a: 456}, {a: 123}, {a: 123}, {a: 123}]});
