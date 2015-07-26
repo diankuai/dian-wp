@@ -1,4 +1,4 @@
-<div id="photo_published">
+<div class="container" id="photo_published">
   <header title="我发的"></header>
   <hr>
   <div class="row text-center">
@@ -16,7 +16,10 @@
   <hr>
   <ul>
     <li ng-repeat="photo in photos">
-    <div photo="photo"></div>
+      <div photo="photo">
+        <span>已获得奖励</span>
+        <button class="btn btn-default">详情</button>
+      </div>
     </li>
   </ul>
 </div>

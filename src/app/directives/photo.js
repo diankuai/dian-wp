@@ -6,6 +6,7 @@ angular.module('dian')
     scope: {
       photo: '='
     },
+    transclude: true,
     templateUrl: 'app/directives/photo.html'
   };
 

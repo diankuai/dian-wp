@@ -1,0 +1,12 @@
+<div class="container" id="photo_liked">
+  <header title="赞过的"></header>
+  <div class="row">那些年流过的口水: {{liked_num}}张</div>
+  <ul>
+    <li ng-repeat = "photo in photos">
+      <div photo="photo">
+        <span>发布者</span>
+        <button class="btn btn-default">详情</button>
+      </div>
+    </li>
+  </ul>
+</div>
