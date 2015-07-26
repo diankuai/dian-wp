@@ -36,24 +36,22 @@ angular.module('dian')
               return;
             }
             $scope.photos = photos.concat(res.data);//push 新的
-          })
+          });
         }
       }
     });
 
     function getPhotos() {
-      return $q.when({data: [{a: 123}, {a: 456}, {a: 123}, {a: 123}, {a: 123}]});
-      /*
+      //return $q.when({data: [{a: 123}, {a: 456}, {a: 123}, {a: 123}, {a: 123}]});
       return $http.get(config.api_url + '/wp/photo/get-next-photo-list/', {
-      /* default is 5, which is configed by server
-      params: {
-        limit: 5
-      }
+        //default is 5, which is configed by server
+        params: {
+          limit: 5
+        }
       }).then(function(res) {
         console.log('5 photos');
         console.log(res.data);
         return res;
       });
-      */
     }
   });
