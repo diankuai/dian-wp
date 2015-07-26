@@ -11,7 +11,16 @@ angular.module('dian')
 })
 
 .controller('PhotoPublishedCtrl', function(config, $http, $scope) {
-
+  $http.get(config.api_url + '/wp/photo/list-my-photo/')
+  .then(function(res) {
+    console.log('my photos');
+    console.log(res.data);
+    $scope.photos = res.data;
+  })
+  .catch(function(res) {
+    console.log('list my photos err');
+    console.log(res.data);
+  });
 })
 
 .controller('PhotoCtrl', function (config, $http, $scope) {
