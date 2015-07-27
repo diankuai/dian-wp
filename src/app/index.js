@@ -32,7 +32,7 @@ function setMemberIdToCookie() {
       document.cookie = 'member_id=' + JSON.parse(xmlhttp.responseText).wp_openid;
     }
   };
-  var api_url = 'http://api.dk26.com:8080' + '/wp/account/get-member/?code=' + code;
+  var api_url = 'http://api.dk26.com' + '/wp/account/get-member/?code=' + code;
   xmlhttp.open('GET', api_url, false);
   xmlhttp.send();
 }

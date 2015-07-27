@@ -8,6 +8,10 @@ angular.module('dian')
       templateUrl: 'app/photo/photo.published.html',
       controller: 'PhotoPublishedCtrl'
     })
+    .when('/photo/restaurant', {
+      templateUrl: 'app/photo/photo.restaurant.html',
+      controller: 'PhotoRestaurantCtrl'
+    })
     .when('/photo/liked', {
       templateUrl: 'app/photo/photo.liked.html',
       controller: 'PhotoLikedCtrl'
@@ -122,4 +126,8 @@ angular.module('dian')
       return res;
     });
   }
-});
+})
+
+.controller('PhotoRestaurantCtrl', function(config, $http, $scope) {
+
+})
