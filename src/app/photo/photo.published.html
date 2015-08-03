@@ -1,4 +1,4 @@
-<div id="photo_published">
+<div class="container" id="photo_published">
   <header title="我发的"></header>
   <hr>
   <div class="row text-center">
@@ -16,18 +16,9 @@
   <hr>
   <ul>
     <li ng-repeat="photo in photos">
-      <div class="row">
-        <div class="xs-col-6 text-center">
-          <img src="javascript:;" alt="" img-key="{{photo.file_key}}">
-        </div>
-        <div class="xs-col-6">
-          <div class="row">{{photo.tag}}</div>
-          <div class="row">{{photo.member}}人赞过</div>
-          <div class="row">
-            <span>已获得奖励</span>
-            <button class="btn btn-default">查看</button>
-          </div>
-        </div>
+      <div photo="photo">
+        <span>已获得奖励</span>
+        <button class="btn btn-default">详情</button>
       </div>
     </li>
   </ul>

@@ -7,7 +7,46 @@ angular.module('dian')
     .when('/photo/published', {
       templateUrl: 'app/photo/photo.published.html',
       controller: 'PhotoPublishedCtrl'
+    })
+    .when('/photo/restaurant', {
+      templateUrl: 'app/photo/photo.restaurant.html',
+      controller: 'PhotoRestaurantCtrl'
+    })
+    .when('/photo/liked', {
+      templateUrl: 'app/photo/photo.liked.html',
+      controller: 'PhotoLikedCtrl'
     });
+})
+
+.controller('PhotoLikedCtrl', function(config, $http, $scope) {
+  $http.get(config.api_url + '/wp/photo/list-my-like/')
+  .then(function(res) {
+    console.log('preferred photo');
+    console.log(res.data);
+    $scope.photos = res.data;
+  })
+  .catch(function(res) {
+    console.error('preferred photo error');
+    console.log(res.data);
+  });
+
+  $http.get(config.api_url + '/wp/photo/get-overview-of-my-like/')
+  .then(function(res) {
+    var overview_liked_photo, total;
+
+    console.log('preferred photo overview');
+    console.log(res.data);
+    overview_liked_photo = res.data;
+    $scope.liked_num = angular.isNumber(
+      overview_liked_photo &&
+      (total = overview_liked_photo.total)
+    ) ? total : 0;
+  })
+  .catch(function(res) {
+    console.error('preferred photo overview');
+    console.log(res.data);
+  });
+
 })
 
 .controller('PhotoPublishedCtrl', function(config, $http, $scope) {
@@ -87,4 +126,8 @@ angular.module('dian')
       return res;
     });
   }
-});
+})
+
+.controller('PhotoRestaurantCtrl', function(config, $http, $scope) {
+
+})
