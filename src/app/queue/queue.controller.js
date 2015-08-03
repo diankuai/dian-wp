@@ -96,6 +96,10 @@ angular.module('dian')
     });
   })
   .controller('QueueCtrl', function (config, $scope, $http) {
+
+    // change title for current page
+    angular.element(document.querySelector('title')).text('排队');
+
     $http.get(config.api_url + '/wp/registration/list-current-registration/')
     .then(function(res) {
       console.log('queue list');
