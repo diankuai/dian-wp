@@ -13,7 +13,7 @@ function setMemberIdToCookie() {
 
   if (code) {
     code = (code + '').replace(/code=/,'');
-    code = 123;//for debug
+    //code = 123;//for debug
   }else {
     console.warn('cannot find weixin code in current url');
   }
