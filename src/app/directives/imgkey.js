@@ -18,7 +18,7 @@ angular.module('dianApp')
                 attrs.$observe('imgKey', function(new_img_key, old_img_key) {
                     if (new_img_key !== old_img_key) {
                         $timeout(function() {
-                            element.attr('src', config.cdn_file_url + new_img_key);
+                            element.attr('src', config.cdnFileUrl + new_img_key);
                         }, 1000);
                     }
                 });

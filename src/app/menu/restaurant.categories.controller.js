@@ -62,7 +62,7 @@ angular.module('dian')
         });
       });
       $http.post(
-        config.api_url + '/wp/trade/update-cart/' + cart_id + '/',
+        config.apiUrl + '/wp/trade/update-cart/' + cart_id + '/',
         products_collection
       )
       .then(function(res) {

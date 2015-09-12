@@ -23,7 +23,7 @@ angular.module('dian')
 
 .controller('MenuCtrl', ['weixin', 'config', '$scope', '$http', '$location',
   function(weixin, config, $scope, $http, $location) {
-    $http.get(config.api_url + '/wp/trade/list-order-now/', {
+    $http.get(config.apiUrl + '/wp/trade/list-order-now/', {
       params: {
         wp_openid: 123
       }
@@ -73,7 +73,7 @@ angular.module('dian')
 
 .controller('MenuOrdersHistoryCtrl', ['config', '$http', '$scope',
   function(config, $http, $scope) {
-    $http.get(config.api_url + '/wp/trade/list-order/', {
+    $http.get(config.apiUrl + '/wp/trade/list-order/', {
       params: {
         wp_openid: 123
       }

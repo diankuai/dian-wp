@@ -6,7 +6,7 @@ angular.module('dian')
   var restaurant_openid, member_openid, cart_id;
   //$scope.products = [{name: 123}];
   $scope.placeOrder = function(order) {
-    $http.post(config.api_url + '/wp/trade/create-order-from-cart/' + cart_id + '/', {}, {
+    $http.post(config.apiUrl + '/wp/trade/create-order-from-cart/' + cart_id + '/', {}, {
       params: {
         openid: restaurant_openid,
         wp_openid: member_openid

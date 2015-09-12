@@ -20,7 +20,7 @@ angular.module('dian')
       });
   })
   .controller('QueueHitstoryCtrl', function(config, $scope, $http) {
-    $http.get(config.api_url + '/wp/registration/list-history-registration/')
+    $http.get(config.apiUrl + '/wp/registration/list-history-registration/')
     .then(function(res) {
       console.log('queue history');
       console.log(res.data);
@@ -41,7 +41,7 @@ angular.module('dian')
 
     restaurant_openid = $location.search('restaurant_openid') || '';
     restaurant_openid = 'can123';//for debug
-    $http.get(config.api_url + '/wp/restaurant/get-restaurant/', {
+    $http.get(config.apiUrl + '/wp/restaurant/get-restaurant/', {
       params: {
         openid: restaurant_openid
       }
@@ -52,7 +52,7 @@ angular.module('dian')
       $scope.restaurant = res.data;
     });
 
-    $http.get(config.api_url + '/wp/table/list-table-type-by-restaurant/', {
+    $http.get(config.apiUrl + '/wp/table/list-table-type-by-restaurant/', {
       params: {
         openid: restaurant_openid
       }
@@ -67,7 +67,7 @@ angular.module('dian')
       if (!$scope.models.table_type_selected) {
         return;
       }
-      $http.post(config.api_url + '/wp/registration/confirm-table-type/', {
+      $http.post(config.apiUrl + '/wp/registration/confirm-table-type/', {
         restaurant_openid: restaurant_openid,
         phone: '123',
         wp_openid: '123',//for debug
@@ -85,7 +85,7 @@ angular.module('dian')
     console.log('queue item id');
     console.log($routeParams.id);
     queue_item_id = $routeParams.id;
-    $http.get(config.api_url + '/wp/registration/get-detail-registration/', {
+    $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
       params: {
         id: queue_item_id
       }
@@ -100,7 +100,7 @@ angular.module('dian')
     // change title for current page
     angular.element(document.querySelector('title')).text('排队');
 
-    $http.get(config.api_url + '/wp/registration/list-current-registration/')
+    $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
     .then(function(res) {
       console.log('queue list');
       console.log(res.data);

@@ -29,7 +29,7 @@ angular.module('dian')
 
   function wxSigInfo(url) {
     return $q(function(reslove, reject) {
-      $http.post(config.api_url + '/wp/wechat/get-jsapi-signature/', {
+      $http.post(config.apiUrl + '/wp/wechat/get-jsapi-signature/', {
         url: url || $location.absUrl()
       }).then(function(res) {
         var data;
@@ -55,7 +55,7 @@ angular.module('dian')
 
   function getMember() {
     return $q(function(rs, rj) {
-      $http.get(config.api_url + '/wp/account/get-member/', {
+      $http.get(config.apiUrl + '/wp/account/get-member/', {
         params: {
           code: wxParam('code')
         }

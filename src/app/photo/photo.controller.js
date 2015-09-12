@@ -19,7 +19,7 @@ angular.module('dian')
 })
 
 .controller('PhotoLikedCtrl', function(config, $http, $scope) {
-  $http.get(config.api_url + '/wp/photo/list-my-like/')
+  $http.get(config.apiUrl + '/wp/photo/list-my-like/')
   .then(function(res) {
     console.log('preferred photo');
     console.log(res.data);
@@ -30,7 +30,7 @@ angular.module('dian')
     console.log(res.data);
   });
 
-  $http.get(config.api_url + '/wp/photo/get-overview-of-my-like/')
+  $http.get(config.apiUrl + '/wp/photo/get-overview-of-my-like/')
   .then(function(res) {
     var overview_liked_photo, total;
 
@@ -50,7 +50,7 @@ angular.module('dian')
 })
 
 .controller('PhotoPublishedCtrl', function(config, $http, $scope) {
-  $http.get(config.api_url + '/wp/photo/list-my-photo/')
+  $http.get(config.apiUrl + '/wp/photo/list-my-photo/')
   .then(function(res) {
     console.log('my photos');
     console.log(res.data);
@@ -101,7 +101,7 @@ angular.module('dian')
     if (photos_liked[id]) {//已经赞过
       return;
     }
-    $http.get(config.api_url + '/wp/photo/like-photo/' + id + '/')
+    $http.get(config.apiUrl + '/wp/photo/like-photo/' + id + '/')
     .then(function(res) {
       console.log('good photo!');
       console.log(res.data);
@@ -115,7 +115,7 @@ angular.module('dian')
 
   function getPhotos() {
     //return $q.when({data: [{a: 123}, {a: 456}, {a: 123}, {a: 123}, {a: 123}]});
-    return $http.get(config.api_url + '/wp/photo/get-next-photo-list/', {
+    return $http.get(config.apiUrl + '/wp/photo/get-next-photo-list/', {
       //default is 5, which is configed by server
       params: {
         limit: 5
