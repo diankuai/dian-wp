@@ -10,6 +10,7 @@ angular.module('dian')
         console.log('ios');
         var el = angular.element(document.createElement('iframe'));
         el.attr('src', '/favicon.ico');
+        el.attr('style', 'display:none;');
         el.on('load', function () {
           setTimeout(function () {
             el.off('load').remove();
