@@ -40,10 +40,6 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
         templateUrl: 'app/menu/menu.html',
         controller: 'MenuCtrl'
       })
-      .when('/queue', {
-        templateUrl: 'app/queue/queue.html',
-        controller: 'QueueCtrl'
-      })
       .when('/', {
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
@@ -57,12 +53,13 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
       function ($cookies, appConfig) {
     return {
       request: function (config) {
-        setMemberIdToCookie(appConfig.apiUrl);
+        if (!$cookies.member_id) {
+          setMemberIdToCookie(appConfig.apiUrl);
+        };
         config.headers = config.headers || {};
         if ($cookies.member_id) {
           config.headers['X-Member-Id'] = $cookies.member_id;
         }
-        config.headers['X-Member-Id'] = 123;// for debug
         return config;
       }
     };

@@ -1,38 +1,46 @@
 'use strict';
 
 angular.module('dian')
-  .config(function($routeProvider) {
-    $routeProvider
-      .when('/queue_history/', {
-        templateUrl: 'app/queue/queue_history.html',
-        controller: 'QueueHitstoryCtrl'
-      })
-      .when('/queue/join/', {
-        templateUrl: 'app/queue/queue_join.html',
-        controller: 'QueueJoinCtrl'
-      })
-      .when('/queue/join/do', {
-        templateUrl: 'app/queue/queue_join_do.html'
-      })
-      .when('/queue_items/:id', {
-        templateUrl: 'app/queue/queue_items.html',
-        controller: 'QueueItemsCtrl'
-      });
+
+  .controller('QueueCtrl', function (config, $scope, $http) {
+    angular.element(document.querySelector('title')).text('排队');
+    $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
+    .then(function(res) {
+      $scope.queue = res.data || [];
+    });
   })
-  .controller('QueueHitstoryCtrl', function(config, $scope, $http) {
+
+  .controller('QueueDetailCtrl', function(config, $scope, $http, $routeParams) {
+    var itemId;
+    itemId = $routeParams.id;
+    $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
+      params: {
+        id: itemId
+      }
+    }).then(function(res) {
+      $scope.item = res.data;
+      angular.element(document.querySelector('title')).text($scope.item.restaurant.name);
+    });
+  })
+
+  .controller('QueueHistoryCtrl', function(config, $scope, $http) {
+    angular.element(document.querySelector('title')).text('排队历史');
     $http.get(config.apiUrl + '/wp/registration/list-history-registration/')
     .then(function(res) {
-      console.log('queue history');
-      console.log(res.data);
       $scope.queue = res.data;
+    });
+  })
 
-      //for debug
-      $scope.queue = [{
-        restaurant: {
-          name: 'this is restaurant'
-        },
-        id: 1
-      }];
+  .controller('QueueHistoryDetailCtrl', function(config, $scope, $http, $routeParams) {
+    var itemId;
+    itemId = $routeParams.id;
+    $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
+      params: {
+        id: itemId
+      }
+    }).then(function(res) {
+      $scope.item = res.data;
+      angular.element(document.querySelector('title')).text($scope.item.restaurant.name);
     });
   })
 
@@ -45,8 +53,7 @@ angular.module('dian')
       params: {
         openid: restaurant_openid
       }
-    })
-    .then(function(res) {
+    }).then(function(res) {
       console.log('restaurant');
       console.log(res.data);
       $scope.restaurant = res.data;
@@ -80,39 +87,4 @@ angular.module('dian')
     };
   })
 
-  .controller('QueueItemsCtrl', function(config, $scope, $http, $routeParams) {
-    var queue_item_id;
-    console.log('queue item id');
-    console.log($routeParams.id);
-    queue_item_id = $routeParams.id;
-    $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
-      params: {
-        id: queue_item_id
-      }
-    }).then(function(res) {
-      console.log('queue_item');
-      console.log(res.data);
-      $scope.queue_item = res.data;
-    });
-  })
-  .controller('QueueCtrl', function (config, $scope, $http) {
-
-    // change title for current page
-    angular.element(document.querySelector('title')).text('排队');
-
-    $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
-    .then(function(res) {
-      console.log('queue list');
-      console.log(res.data);
-      $scope.queue = res.data || [];
-
-    });
-    /* for debug
-    $scope.queue = [{
-      restaurant: {
-        name: 'this is restaurant'
-      },
-      id: 1
-    }];
-    */
-  });
+;

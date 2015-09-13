@@ -1,0 +1,24 @@
+<div class="footer">
+  <ul>
+    <li>
+      <a href="#/queue/join/">扫码排队</a>
+    </li>
+    <li>
+    <a href="#/queue/history/">排队历史</a>
+    </li>
+  </ul>
+</div>
+
+<div class="main">
+  <h3>
+    当前排队中：{{queue.length}}个
+  </h3>
+  <ul class="list">
+    <li ng-repeat="item in queue">
+      <div>餐厅：{{item.restaurant.name}}</div>
+      <div>号码：{{item.table_type.name}} {{item.queue_number}}</div>
+      <div>取号时间：{{item.create_time}}</div>
+      <a ng-href="#/queue/detail/{{item.id}}" class="detail"></a>  
+    </li>
+  </ul>
+</div>

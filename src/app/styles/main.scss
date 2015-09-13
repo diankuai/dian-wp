@@ -1,0 +1,163 @@
+@import "variables";
+
+/* common */
+body {
+  font-size: 0.875em;
+  line-height: 2em;
+  font-family: "Microsoft YaHei","Lucida Grande",Helvetica,Arial;
+  background-color: $default-bg;
+}
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  line-height: $footer-height;
+  text-decoration: none;
+  color: $default-color;
+  display: inline-block;
+  padding: 0 30px;
+}
+
+/* main content */
+.main {
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+/* bottom menu bar */
+.footer {
+  height: $footer-height;
+  line-height: $footer-height;
+  font-size: 16px;
+  position: fixed;
+  background-color: $block-bg;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #CCC;
+  ul {
+    li {
+      display: inline-block;
+      width: 49%;
+      text-align: center;
+    }
+  }
+}
+.footer + .main {
+  margin-bottom: $footer-height;
+}
+
+
+// @mixin clear-fix {
+//   &:before,
+//   &:after {
+//     content: " ";
+//     display: table;
+//   }
+//   &:after {
+//     clear: both;
+//   }
+// }
+// 
+// 
+// .container {
+//   margin: 15px;
+// }
+// 
+// .btn-group {
+//   text-align: center;
+// }
+// 
+// .nav.nav-pills.nav-stacked {
+//   li > a {
+//     @extend .btn;
+//   }
+//   .active > a {
+//     @extend .btn-default;
+//   }
+// }
+// 
+// footer {
+//   position: fixed;
+//   bottom: 15px;
+//   left: 0;
+//   right: 0;
+// }
+// 
+// .btn {
+//   display: inline-block;
+//   text-align: center;
+//   vertical-align: middle;
+//   cursor: pointer;
+//   border: 0;
+//   color: black;
+//   background-color: white;
+//   padding: 10px 16px;
+//   line-height: 1.33;
+//   border-radius: 6px;
+// }
+// 
+// .btn.btn-default {
+//   color: white;
+//   background-color: $btn-default-bg;
+// }
+// 
+// .btn.btn-xs {
+//   padding: 5px 8px;
+//   line-height: 1;
+//   border-radius: 3px;
+// }
+// 
+// .btn-block {
+//   display: block;
+//   width: 100%;
+// }
+// 
+// //utils begin
+// .text-center {
+//   text-align: center!important;
+// }
+// .pull-right {
+//   float: right;
+// }
+// 
+// .pull-left {
+//   float: left;
+// }
+// 
+// //utils end
+// 
+// //grid begin
+// .row {
+//   @include clear-fix;
+// }
+// .col-xs-4 {
+//   width: 100% / 12 * 4;
+//   float: left;
+// }
+// .xs-col-3 {
+//   width: 100% / 12 * 3;
+//   float: left;
+// }
+// 
+// .xs-col-6 {
+//   width: 100% / 12 * 6;
+//   float: left;
+// }
+// 
+// .xs-col-9 {
+//   width: 100% / 12 * 9;
+//   float: left;
+// }
+// //grid end
+// 
+// hr {
+//   clear: both;
+// }
+// 
+// a {
+//   text-decoration: none;
+// }
+
