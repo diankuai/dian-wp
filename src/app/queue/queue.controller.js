@@ -2,15 +2,15 @@
 
 angular.module('dian')
 
-  .controller('QueueCtrl', function (config, $scope, $http) {
-    document.title = '排队';
+  .controller('QueueCtrl', function (config, $scope, $http, utils) {
+    utils.setTitle('排队');
     $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
     .then(function(res) {
       $scope.queue = res.data || [];
     });
   })
 
-  .controller('QueueDetailCtrl', function(config, $scope, $http, $routeParams) {
+  .controller('QueueDetailCtrl', function(config, $scope, $http, $routeParams, utils) {
     var itemId;
     itemId = $routeParams.id;
     $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
@@ -19,19 +19,19 @@ angular.module('dian')
       }
     }).then(function(res) {
       $scope.item = res.data;
-      document.title = $scope.item.restaurant.name;
+      utils.setTitle($scope.item.restaurant.name);
     });
   })
 
-  .controller('QueueHistoryCtrl', function(config, $scope, $http) {
-    document.title = '排队历史';
+  .controller('QueueHistoryCtrl', function(config, $scope, $http, utils) {
+    utils.setTitle('排队历史');
     $http.get(config.apiUrl + '/wp/registration/list-history-registration/')
     .then(function(res) {
       $scope.queue = res.data;
     });
   })
 
-  .controller('QueueHistoryDetailCtrl', function(config, $scope, $http, $routeParams) {
+  .controller('QueueHistoryDetailCtrl', function(config, $scope, $http, $routeParams, utils) {
     var itemId;
     itemId = $routeParams.id;
     $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {
@@ -40,7 +40,7 @@ angular.module('dian')
       }
     }).then(function(res) {
       $scope.item = res.data;
-      document.title = $scope.item.restaurant.name;
+      utils.setTitle($scope.item.restaurant.name);
     });
   })
 

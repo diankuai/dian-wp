@@ -3,6 +3,27 @@
 angular.module('dian')
 .factory('utils', function() {
   return {
+
+    setTitle: function (title) {
+      document.title = title;
+      if (/iPad|iPhone|iPod/.test(navigator.platform)) {
+        console.log('ios');
+        var el = angular.element(document.createElement('iframe'));
+        el.attr('src', '/favicon.ico');
+        el.on('load', function () {
+          setTimeout(function () {
+            el.off('load').remove();
+          });
+        });
+        angular.element(document.body).append(el);
+      };
+    },
+
+    isIOS: function () {
+      var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
+      return iOS;
+    },
+
     listItemSum: function(list, key, other) {
       var sum = 0, factor;
       angular.forEach(list, function(v) {

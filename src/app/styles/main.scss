@@ -37,13 +37,14 @@ a, button, input {
 .footer {
   height: $footer-height;
   line-height: $footer-height;
-  font-size: 16px;
+  font-size: 1.25em;
   position: fixed;
   background-color: $block-bg;
   bottom: 0;
   left: 0;
   right: 0;
   border-top: 1px solid #CCC;
+  z-index: 1000;
   ul {
     li {
       display: inline-block;
