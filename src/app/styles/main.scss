@@ -13,11 +13,8 @@ ul, ol {
   padding: 0;
 }
 a {
-  line-height: $footer-height;
   text-decoration: none;
   color: $default-color;
-  display: inline-block;
-  padding: 0 30px;
 }
 
 /* 1.去除android a/button/input标签被点击时产生的边框
@@ -36,7 +33,6 @@ a, button, input {
 /* bottom menu bar */
 .footer {
   height: $footer-height;
-  line-height: $footer-height;
   font-size: 1.25em;
   position: fixed;
   background-color: $block-bg;
@@ -50,6 +46,10 @@ a, button, input {
       display: inline-block;
       width: 49%;
       text-align: center;
+      a {
+        line-height: $footer-height;
+        padding: 0 30px;
+      };
     }
   }
 }
