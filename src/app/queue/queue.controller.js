@@ -3,7 +3,7 @@
 angular.module('dian')
 
   .controller('QueueCtrl', function (config, $scope, $http) {
-    angular.element(document.querySelector('title')).text('排队');
+    document.title = '排队';
     $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
     .then(function(res) {
       $scope.queue = res.data || [];
@@ -19,12 +19,12 @@ angular.module('dian')
       }
     }).then(function(res) {
       $scope.item = res.data;
-      angular.element(document.querySelector('title')).text($scope.item.restaurant.name);
+      document.title = $scope.item.restaurant.name;
     });
   })
 
   .controller('QueueHistoryCtrl', function(config, $scope, $http) {
-    angular.element(document.querySelector('title')).text('排队历史');
+    document.title = '排队历史';
     $http.get(config.apiUrl + '/wp/registration/list-history-registration/')
     .then(function(res) {
       $scope.queue = res.data;
@@ -40,7 +40,7 @@ angular.module('dian')
       }
     }).then(function(res) {
       $scope.item = res.data;
-      angular.element(document.querySelector('title')).text($scope.item.restaurant.name);
+      document.title = $scope.item.restaurant.name;
     });
   })
 
