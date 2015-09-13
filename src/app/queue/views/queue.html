@@ -11,13 +11,13 @@
 
 <div class="main">
   <h3>
-    当前排队中：{{queue.length}}个
+    当前您有 <span class="text-mark">{{queue.length}}</span> 个排队
   </h3>
   <ul class="list">
     <li ng-repeat="item in queue">
+      <div>{{item.create_time}}</div>
       <div>餐厅：{{item.restaurant.name}}</div>
       <div>号码：{{item.table_type.name}} {{item.queue_number}}</div>
-      <div>取号时间：{{item.create_time}}</div>
       <a ng-href="#/queue/detail/{{item.id}}" class="detail"></a>  
     </li>
   </ul>

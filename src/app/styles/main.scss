@@ -57,6 +57,9 @@ a, button, input {
   margin-bottom: $footer-height;
 }
 
+.text-mark {
+  color: $default-color;
+}
 
 // @mixin clear-fix {
 //   &:before,
