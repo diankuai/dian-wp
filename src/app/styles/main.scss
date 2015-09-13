@@ -33,7 +33,6 @@ a, button, input {
 /* bottom menu bar */
 .footer {
   height: $footer-height;
-  font-size: 1.25em;
   position: fixed;
   background-color: $block-bg;
   bottom: 0;
@@ -47,6 +46,7 @@ a, button, input {
       width: 49%;
       text-align: center;
       a {
+        font-size: 1.25em;
         line-height: $footer-height;
         padding: 0 30px;
       };
