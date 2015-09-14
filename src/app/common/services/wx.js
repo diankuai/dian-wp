@@ -14,17 +14,17 @@ angular.module('dian')
    * });
   */
   function safeExec(apiName, apiArgs) {
-    var okDefer = $q.defer();
+    var deferred = $q.defer();
     wxSigInfo().then(configWx).then(function() {
     //wxSigInfo('http://localhost:3000').then(configWx).then(function() {
       wx.ready(function() {
         wx[apiName] ? wx[apiName](angular.extend(apiArgs, {
         success: function(res) {
-          okDefer(res);
+          deferred.resolve(res);
         }})) : angular.noop();
       });
     });
-    return okDefer.promise;
+    return deferred.promise;
   }
 
   function wxSigInfo(url) {
