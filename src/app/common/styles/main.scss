@@ -65,12 +65,12 @@ a, button, input {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: $default-color;
   z-index: 999;
   margin: -18px 0 0 -18px;
   display: none;
   i {
     font-size: 36px;
+    color: $default-color;
   };
   &.on {
     display: block;
