@@ -68,4 +68,27 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
   .config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('memberIdInterceptor');
   }])
+
+  .factory('DataLoadingInterceptor', ['$q', '$window', function ($q, $window) {
+    return {
+      'response': function(response) {
+        angular.element(document.querySelector('.loading')).removeClass('on');
+        return response;
+      },
+      'responseError': function(rejection) {
+        angular.element(document.querySelector('.loading')).removeClass('on');
+        return $q.reject(rejection);
+      }
+    }
+  }])
+
+  .config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.interceptors.push('DataLoadingInterceptor');
+    var spinnerFunction = function spinnerFunction(data, headersGetter) {
+      angular.element(document.querySelector('.loading')).addClass('on');
+      return data;
+    };
+    $httpProvider.defaults.transformRequest.push(spinnerFunction);
+  }])
+
 ;

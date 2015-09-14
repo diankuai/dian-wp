@@ -12,6 +12,7 @@
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
+    <link rel="stylesheet" href="/assets/fonticons.css">
     <!-- endbuild -->
 
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
@@ -26,6 +27,10 @@
     <![endif]-->
 
     <div ng-view></div>
+
+    <div class="loading">
+      <i class="icon icon-spinner icon-spin icon-2x"></i>
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
