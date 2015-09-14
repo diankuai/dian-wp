@@ -15,9 +15,9 @@
   </h3>
   <ul class="list">
     <li ng-repeat="item in queue">
-      <div>{{item.create_time}}</div>
       <div>餐厅：{{item.restaurant.name}}</div>
       <div>号码：{{item.table_type.name}} {{item.queue_number}}</div>
+      <div>{{item.create_time}}</div>
       <a ng-href="#/queue/detail/{{item.id}}" class="detail"></a>  
     </li>
   </ul>
