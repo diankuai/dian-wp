@@ -2,7 +2,7 @@
   <div class="block">
     <div class="">号码：{{item.queue_name}} {{item.queue_number}}</div>
     <div class="">状态：{{item.status}}</div>
-    <div class="">开始时间：{{item.create_time}}</div>
-    <div class="">结束时间：{{item.end_time}}</div>
+    <div class="">开始时间：{{item.create_time|datetime}}</div>
+    <div class="">结束时间：{{item.end_time|datetime}}</div>
   </div>
 </div>

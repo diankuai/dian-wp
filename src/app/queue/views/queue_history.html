@@ -1,7 +1,7 @@
 <div class="main">
   <ul class="list">
     <li ng-repeat="item in queue" class="block">
-      <div class="">{{item.create_time}}</div>
+      <div class="">{{item.create_time|datetime}}</div>
       <div class="">餐厅：{{item.restaurant.name}}</div>
       <div class="">状态：{{item.status}}</div>
       <a ng-href="#/queue/history/detail/{{item.id}}" 

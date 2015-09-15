@@ -1,11 +1,13 @@
 <div class="main">
-  <h3>请选择人数</h3>
-  <a href="#/queue/join/current/{{restaurant.openid}}">
-    您已有 {{current_queue.length}} 个排队
-  </a>
+  <h3>
+    请选择人数
+    <a href="#/queue/join/current/{{restaurant.openid}}" class="queue-notify">
+      您已有 {{current_queue.length}} 个排队
+    </a>
+  </h3>
 
-  <ul>
-    <li class="table-type-wrap" ng-repeat="ttype in table_types">
+  <ul class="table-type-wrap">
+    <li class="table-type-item" ng-repeat="ttype in table_types">
       <input type="radio" ng-model="target.table_type_selected" name="table_type" ng-value="ttype" id="table_type_{{ttype.id}}">
       <label
         for="table_type_{{ttype.id}}"
@@ -15,6 +17,6 @@
     </li>
   </ul>
 
-  <button ng-click="join()" class="">join</button>
+  <button ng-click="join()" class="btn btn-primary btn-block">排队取号</button>
 
 </div>

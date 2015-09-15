@@ -17,7 +17,7 @@
     <li ng-repeat="item in queue" class="block">
       <div>餐厅：{{item.restaurant.name}}</div>
       <div>号码：{{item.queue_name}} {{item.queue_number}}</div>
-      <div>{{item.create_time}}</div>
+      <div>{{item.create_time|datetime}}</div>
       <a ng-href="#/queue/detail/{{item.id}}" class="detail"></a>  
     </li>
   </ul>

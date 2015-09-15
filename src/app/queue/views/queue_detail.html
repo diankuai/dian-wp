@@ -1,7 +1,7 @@
 <div class="main">
   <div class="block">
     <div class="">号码：{{item.queue_name}} {{item.queue_number}}</div>
-    <div class="">取号时间：{{item.create_time}}</div>
+    <div class="">时间：{{item.create_time|datetime}}</div>
     <div class="">当前 {{item.table_type.name}} 已叫到 {{item.current_registration||0}} 号</div>
   </div>
 </div>
