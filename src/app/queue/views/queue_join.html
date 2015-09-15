@@ -1,25 +1,20 @@
-<div id="queue_join">
-  <header goback="/#/queue" title="{{restaurant.name}}"></header>
-  <hr>
-  <div class="row pull-left">
-    please select table
-  </div>
-  <hr>
-  <ul ng-repeat="table_type in table_types">
-    <li>
-      <div class="row text-center" ng-click="models.table_type_selected={{table_type.id}}">
-        <button class="btn btn-default">
-    {{table_type.name}} table
-     {{table_type.min_seats}}
-      to {{table_type.max_seats}} people
-        </button>
-      </div>
-      <hr>
+<div class="main">
+  <h3>请选择人数</h3>
+  <a href="#/queue/join/current/{{restaurant.openid}}">
+    您已有 {{current_queue.length}} 个排队
+  </a>
+
+  <ul>
+    <li class="table-type-wrap" ng-repeat="ttype in table_types">
+      <input type="radio" ng-model="target.table_type_selected" name="table_type" ng-value="ttype" id="table_type_{{ttype.id}}">
+      <label
+        for="table_type_{{ttype.id}}"
+        ng-class="{true: 'active', false: 'inactive'}[target.table_type_selected==ttype]">
+        {{ttype.min_seats}} - {{ttype.max_seats}} 人 ( {{ttype.name}} )
+      </label>
     </li>
   </ul>
-  <footer class="row text-center">
-    <!-- <a href="#/queue/join/do"
-    ng-click="join()" class="btn btn-default">join</a> -->
-    <a href="javascript:;" ng-click="join()" class="btn btn-default">join</a>
-  </footer>
+
+  <button ng-click="join()" class="">join</button>
+
 </div>

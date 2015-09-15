@@ -25,8 +25,13 @@ angular.module('dian')
         templateUrl: viewsPath + 'queue_join.html',
         controller: 'QueueJoinCtrl'
       })
-      .when('/queue/join/do', {
-        templateUrl: viewsPath + 'queue_join_do.html'
+      .when('/queue/join/detail/:id', {
+        templateUrl: viewsPath + 'queue_join_detail.html',
+        controller: 'QueueJoinDetailCtrl'
+      })
+      .when('/queue/join/current/:restaurant_openid', {
+        templateUrl: viewsPath + 'queue_join_current.html',
+        controller: 'QueueJoinCurrentCtrl'
       })
     ;
   })

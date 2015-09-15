@@ -1,10 +1,7 @@
 @import "../common/styles/variables";
 
 ul.list li {
-  margin: 15px 0;
-  padding: 10px;
   position: relative;
-  background-color: $block-bg;
   background-image: url('/assets/images/list_right.png');
   background-repeat: no-repeat;
   background-position: 90% center;

@@ -2,7 +2,7 @@
 
 /* common */
 body {
-  font-size: 0.875em;
+  font-size: 1em; /*16px,比常规字号(14px)略大*/
   line-height: 2em;
   font-family: "Microsoft YaHei","Lucida Grande",Helvetica,Arial;
   background-color: $default-bg;
@@ -28,6 +28,12 @@ a, button, input {
 .main {
   padding: 10px;
   margin-bottom: 0;
+}
+
+.block {
+  margin: 15px 0;
+  padding: 10px 15px;
+  background-color: $block-bg;
 }
 
 /* bottom menu bar */
