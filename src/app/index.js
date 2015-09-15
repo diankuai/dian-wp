@@ -14,7 +14,7 @@ function setMemberIdToCookie(apiUrl) {
   };
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 201) // 201?
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) // 201?
     {
       document.cookie = 'member_id='
         + JSON.parse(xmlhttp.responseText).wp_openid;
