@@ -20,7 +20,7 @@ a {
 /* 1.去除android a/button/input标签被点击时产生的边框
  * 2.去除ios a标签被点击时产生的半透明灰色背景
  */
-a, button, input {
+a, button, input, label {
   -webkit-tap-highlight-color: rgba(255,0,0,0);
 }
 
