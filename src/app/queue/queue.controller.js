@@ -102,7 +102,12 @@ angular.module('dian')
     };
   })
 
-  .controller('QueueJoinDetailCtrl', function(config, $scope, $http, $routeParams, utils) {
+  .controller('QueueJoinDetailCtrl',
+      function(config, $scope, $http, $routeParams, utils, memberInfo) {
+    memberInfo.then(function (res) {
+      $scope.member = res.data;
+      console.log($scope.member);
+    });
     var itemId;
     itemId = $routeParams.id;
     $http.get(config.apiUrl + '/wp/registration/get-detail-registration/', {

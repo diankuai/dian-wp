@@ -4,4 +4,20 @@
     <div class="">时间：{{item.create_time|datetime}}</div>
     <div class="">当前 {{item.table_type.name}} 已叫到 {{item.current_registration||0}} 号</div>
   </div>
+
+  <!-- 对没有关注公众号的人，提示关注 -->
+  <div class="block" ng-if="member.wp_subscribe===0">
+    <h2>关注点快，获取排队提醒</h2>
+    <h2>更可玩游戏，赢奖励</h2>
+    <p>1. 长按右侧图片</p>
+    <p>2. 识别图中二维码</p>
+    <p>3. 关注公众号</p>
+    <img src="/assets/images/dian_qrcode_8.jpg" alt="">
+  </div>
+
+  <div class="block" ng-if="member.wp_subscribe!==0">
+    玩游戏，赢奖励
+  </div>
+
 </div>
+

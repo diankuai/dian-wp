@@ -1,13 +1,12 @@
 <div class="main">
   <h3>
-    当前您有 <span class="text-mark">{{queue.length}}</span> 个排队
+    您在 {{restaurant.name}} 已取得 <span class="text-mark">{{queue.length}}</span> 个号码
   </h3>
   <ul class="list">
     <li ng-repeat="item in queue" class="block">
-      <div>餐厅：{{item.restaurant.name}}</div>
       <div>号码：{{item.queue_name}} {{item.queue_number}}</div>
       <div>{{item.create_time|datetime}}</div>
-      <a ng-href="#/queue/detail/{{item.id}}" class="detail"></a>  
+      <a ng-href="#/queue/join/detail/{{item.id}}" class="detail"></a>  
     </li>
   </ul>
 </div>

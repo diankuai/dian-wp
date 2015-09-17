@@ -1,7 +1,9 @@
 <div class="main">
   <h3>
     请选择人数
-    <a href="#/queue/join/current/{{restaurant.openid}}" class="queue-notify">
+    <a href="#/queue/join/current/{{restaurant.openid}}"
+      ng-if="current_queue.length>0"
+      class="queue-notify">
       已取得 {{current_queue.length}} 个号码
     </a>
   </h3>
