@@ -54,10 +54,11 @@ angular.module('dian')
     });
   })
 
+  // http://127.0.0.1:3000/#/queue/join/?state=6642de481433dde8d6e52dd5045ce976
   .controller('QueueJoinCtrl', function(config, $scope, $http, $location, utils) {
-    var restaurant_openid;
 
-    restaurant_openid = $location.search().state || '';
+    var restaurant_openid = $location.search().state || '';
+
     $http.get(config.apiUrl + '/wp/restaurant/get-restaurant/', {
       params: {
         openid: restaurant_openid
@@ -141,6 +142,5 @@ angular.module('dian')
     });
 
   })
-
-;
+  ;
 

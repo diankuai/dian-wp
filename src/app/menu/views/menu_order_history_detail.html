@@ -1,0 +1,29 @@
+<div class="main">
+
+  <div class="block">
+    {{order.status | order_status}}
+  </div>
+
+  <div class="block">
+    桌号：XXX
+  </div>
+  
+  <div class="block">
+    下单时间：{{order.create_time | datetime}}
+  </div>
+
+  <div class="block">
+    <ul>
+      <li ng-repeat="item in order.order_items">
+        <product-item item="item"></product-item>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="">{{total_count}}</div>
+    <div class="">总价：{{total_price}}</div>
+  </div>
+
+</div>
+

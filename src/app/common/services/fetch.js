@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dian')
-  .factory('fetch', ['config', '$http',
+  .factory('to_be_delete', ['config', '$http',
     function(config, $http) {
       return function(resource) {
         return {

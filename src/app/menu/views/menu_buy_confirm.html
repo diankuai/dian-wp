@@ -1,0 +1,28 @@
+<div class="main">
+
+
+  <div class="block">
+    桌号：XXX
+  </div>
+  
+  <div class="block">
+    <ul>
+      <li ng-repeat="item in products">
+        <product-item item="item"></product-item>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="">{{total_count}}</div>
+    <div class="">总价：{{total_price}}</div>
+  </div>
+
+  <a href="" ng-click="confirmSubmit()" class="btn">
+    确认下单
+  </a>
+
+
+  <!--<div ng-if="order.ok && restaurant.wifi_name" class="text-center">-->
+
+</div>

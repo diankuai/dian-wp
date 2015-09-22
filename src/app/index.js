@@ -36,10 +36,6 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
         templateUrl: 'app/photo/index.html',
         controller: 'PhotoCtrl'
       })
-      .when('/menu', {
-        templateUrl: 'app/menu/menu.html',
-        controller: 'MenuCtrl'
-      })
       .when('/', {
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'

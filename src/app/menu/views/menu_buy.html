@@ -1,0 +1,51 @@
+<div id="restaurant-catogaries" class="container">
+
+  <div>
+    <ul class="">
+      <li ng-repeat="category in menu.categories"
+          ng-class="{true: 'active'}[ui.cur_tab === {{$index}}]">
+        <a href="javacript:;" ng-click="ui.cur_tab = {{$index}}" class="btn">
+          {{category.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="">
+    <!-- <div ng-repeat="category in menu.categories" ng-show="ui.cur_tab"> -->
+    <div ng-repeat="category in menu.categories"
+      ng-show="ui.cur_tab === {{$index}}">
+      <ul>
+        <li ng-repeat="product in category.products">
+
+          <div class="">
+            <div class="">
+              <product-item item="product"></product-item>
+            </div>
+            <div class="">
+              <a href="javascript:;" class="btn"
+                ng-click="change(product, -1)">-</a>
+              <span>{{product.count || 0}}</span>
+              <a href="javascript:;" class="btn"
+                ng-click="change(product, 1)">+</a>
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="">
+      共{{total_count}}份
+    </div>
+    <div class="">
+      <a ng-click="submit()" href="javascript:;" class="btn">选好了</a>
+    </div>
+    <div class="">
+      总价：{{total_price}}元
+    </div>
+  </div>
+
+</div>
