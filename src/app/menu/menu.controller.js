@@ -1,25 +1,26 @@
 'use strict';
 
 angular.module('dian')
-  .config(function($routeProvider) {
-    $routeProvider
-      .when('/menu/orders/:id', {
-        templateUrl: 'app/menu/menu.orders.html',
-        controller: 'MenuOrdersCtrl'
-      })
-      .when('/restaurant/catogaries', {
-        templateUrl: 'app/menu/restaurant.categories.html',
-        controller: 'RestaurantCatogariesCtrl'
-      })
-      .when('/orders/history', {
-        templateUrl: 'app/menu/menu.orders.history.html',
-        controller: 'MenuOrdersHistoryCtrl'
-      })
-      .when('/carts', {
-        templateUrl: 'app/menu/carts.html',
-        controller: 'CartsCtrl'
-      });
-  })
+
+.config(function($routeProvider) {
+  $routeProvider
+    .when('/menu/orders/:id', {
+      templateUrl: 'app/menu/menu.orders.html',
+      controller: 'MenuOrdersCtrl'
+    })
+    .when('/restaurant/catogaries', {
+      templateUrl: 'app/menu/restaurant.categories.html',
+      controller: 'RestaurantCatogariesCtrl'
+    })
+    .when('/orders/history', {
+      templateUrl: 'app/menu/menu.orders.history.html',
+      controller: 'MenuOrdersHistoryCtrl'
+    })
+    .when('/carts', {
+      templateUrl: 'app/menu/carts.html',
+      controller: 'CartsCtrl'
+    });
+})
 
 .controller('MenuCtrl', ['weixin', 'config', '$scope', '$http', '$location',
   function(weixin, config, $scope, $http, $location) {
