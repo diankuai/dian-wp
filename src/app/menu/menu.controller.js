@@ -32,8 +32,8 @@ angular.module('dian')
         $scope.order = res.data;
         utils.setTitle($scope.order.restaurant_name);
 
+        $scope.total_price = utils.listItemSum($scope.order.order_items, 'price', 'count');
         $scope.total_count = utils.listItemSum($scope.order.order_items, 'count');
-        $scope.total_price = utils.listItemSum($scope.order.order_items, 'price');
       });
     }
   ])
@@ -58,8 +58,8 @@ angular.module('dian')
         $scope.order = res.data;
         utils.setTitle($scope.order.restaurant_name);
 
+        $scope.total_price = utils.listItemSum($scope.order.order_items, 'price', 'count');
         $scope.total_count = utils.listItemSum($scope.order.order_items, 'count');
-        $scope.total_price = utils.listItemSum($scope.order.order_items, 'price');
       });
     }
   ])
@@ -170,8 +170,8 @@ angular.module('dian')
     }
   ])
 
-  .controller('MenuBuyConfirmCtrl', ['config', 'utils', '$scope', '$http', '$routeParams',
-    function(config, utils, $scope, $http, $routeParams) {
+  .controller('MenuBuyConfirmCtrl', ['config', 'utils', '$scope', '$http', '$location', '$routeParams',
+    function(config, utils, $scope, $http, $location, $routeParams) {
 
       var cart_id = $routeParams.id;
 
@@ -188,7 +188,7 @@ angular.module('dian')
           delete v.product.id;
           return angular.extend(v, v.product);
         });
-        $scope.total_price = utils.listItemSum($scope.products, 'price');
+        $scope.total_price = utils.listItemSum($scope.products, 'price', 'count');
         $scope.total_count = utils.listItemSum($scope.cart.cart_items, 'count');
       });
 
@@ -199,11 +199,8 @@ angular.module('dian')
             cart_id: cart_id 
           }
         }).then(function(res) {
-          $scope.order_create_ok = true;
-          console.log('place order');
-          console.log(order);
-          console.log('response');
           console.log(res);
+          $location.path('/menu/order/detail/' + res.data.id);
         });
       };
     }
