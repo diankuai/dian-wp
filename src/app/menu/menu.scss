@@ -1,20 +1,45 @@
-#restaurant-catogaries {
-  $aside-width: 100px;
-  aside {
-    width: $aside-width;
-    float: left;
-    ul > li {
-      margin-bottom: 5px;
-    }
-  }
-  main {
-    margin-left: $aside-width;
-  }
+$side-width: 60px;
+$bar-height: 40px;
+
+.menu-topbar {
+  height: $bar-height;
+  background-color: #FFF;
 }
 
-header {
-  h1 {
-    margin: 0;
+.menu-topbar + .menu {
+  top: $bar-height;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .category {
+    position: absolute;
+    width: $side-width;
+    top: 0;
+    left: 0;
+    bottom: $bar-height;
+    overflow-x: scroll;
+  }
+  .container {
+    position: absolute;
+    top: 0;
+    bottom: $bar-height;
+    left: $side-width;
+    right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .bar {
+    position: fixed;
+    bottom: 0;
+    height: $bar-height;
+    width: 100%;
+    background-color: #FFF;
   }
 }
 
