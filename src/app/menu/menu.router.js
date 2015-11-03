@@ -30,13 +30,10 @@ angular.module('dian')
         templateUrl: viewsPath + 'menu_buy_confirm.html',
         controller: 'MenuBuyConfirmCtrl'
       })
-      .when('/menu/buy/current/:restaurant_openid', {
-        templateUrl: viewsPath + 'menu_buy_confirm.html',
-        controller: 'MenuBuyConfirmCtrl'
-      })
-      .when('/menu/buy/detail/:order_id', {
-        templateUrl: viewsPath + 'menu_buy_confirm.html',
-        controller: 'MenuBuyConfirmCtrl'
+      // 购买时提示的未结束订单列表
+      .when('/menu/buy/current/:table_openid', {
+        templateUrl: viewsPath + 'menu_buy_current.html',
+        controller: 'MenuBuyCurrentCtrl'
       })
       ;
   })

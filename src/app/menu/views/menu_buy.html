@@ -1,5 +1,7 @@
-<div class="menu-topbar">
-  当前您有2个订单
+<div class="menu-topbar" ng-if="current_orders.length>0">
+  <a href="#/menu/buy/current/{{table_openid}}">
+    当前您有{{current_orders.length}}个订单，点击查看
+  </a>
 </div>
 
 <div class="menu">
@@ -18,21 +20,17 @@
   <div class="container">
     <div class="content" ng-repeat="category in menu.categories"
       ng-show="ui.cur_tab === {{$index}}">
-      <ul>
+      <ul class="product-list">
         <li ng-repeat="product in category.products">
 
-          <div class="">
+            <product-item item="product"></product-item>
             <div class="">
-              <product-item item="product"></product-item>
-            </div>
-            <div class="">
-              <a href="javascript:;" class="btn"
+              <a href="javascript:;" class="circle-btn"
                 ng-click="change(product, -1)">-</a>
               <span>{{product.count || 0}}</span>
-              <a href="javascript:;" class="btn"
+              <a href="javascript:;" class="circle-btn"
                 ng-click="change(product, 1)">+</a>
             </div>
-          </div>
 
         </li>
       </ul>
@@ -40,15 +38,31 @@
   </div>
 
   <div class="bar">
-    <span class="">
-      共{{total_count}}份
+    <i class="cart icon icon-shopping-cart icon-2x"
+      ng-class="{
+        'full': (products_collection.length>0),
+        'empty': (products_collection.length<=0)
+      }"></i>
+    <span class="count" ng-class="{
+        'full': (products_collection.length>0),
+        'empty': (products_collection.length<=0)
+      }">
+      {{total_count}}
     </span>
-    <span class="">
-      总价：{{total_price}}元
+    <span class="price" ng-class="{
+        'full': (products_collection.length>0),
+        'empty': (products_collection.length<=0)
+      }">
+      {{total_price}} 元
     </span>
-    <span class="">
-      <a ng-click="submit()" href="javascript:;" class="">选好了</a>
-    </span>
+    <a ng-click="submit()" href="javascript:;"
+      ng-class="{
+        'enable': (products_collection.length>0),
+        'disable': (products_collection.length<=0)
+      }"
+      class="submit-btn">
+      选好了
+    </a>
   </div>
 
 </div>

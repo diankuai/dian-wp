@@ -1,0 +1,11 @@
+<div class="main">
+  <ul class="list">
+    <li ng-repeat="order in current_orders" class="block">
+      <div class="">餐厅：{{order.restaurant_name}}</div>
+      <div class="">状态：{{order.status | order_status}}</div>
+      <div class="">下单时间：{{order.create_time | datetime}}</div>
+      <a ng-href="#/menu/order/history/detail/{{order.id}}" class="detail"></a>
+    </li>
+  </ul>
+</div>
+

@@ -1,9 +1,22 @@
-$side-width: 60px;
-$bar-height: 40px;
+@import "../common/styles/variables";
+
+$side-width: 80px;
+$side-item-height: 60px;
+$bar-height: 50px;
+$bar-color: #fff;
+$circle-btn-size: 20px;
+$circle-span-size: 18px;
+$bar-gray: #999;
 
 .menu-topbar {
   height: $bar-height;
-  background-color: #FFF;
+  line-height: $bar-height;
+  background-color: $default-color;
+  color: #fff;
+  text-align: center;
+  a {
+    color: #fff;
+  }
 }
 
 .menu-topbar + .menu {
@@ -24,6 +37,20 @@ $bar-height: 40px;
     left: 0;
     bottom: $bar-height;
     overflow-x: scroll;
+    ul {
+      li {
+        height: $side-item-height;
+        line-height: $side-item-height;
+        text-align: center;
+        border-left: 3px solid $default-bg;
+        a {
+        }
+        &.active {
+          background-color: #FFF;
+          border-left: 3px solid $default-color;
+        }
+      }
+    }
   }
   .container {
     position: absolute;
@@ -33,13 +60,108 @@ $bar-height: 40px;
     right: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: #FFF;
+    .content {
+      ul.product-list {
+        li {
+          border-bottom: 1px solid $default-bg;
+          position: relative;
+          &:last-child {
+            border-bottom: none;
+          }
+          img {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+    .circle-btn {
+      font-size: $circle-btn-size;
+      display: inline-block;
+      border: 1px solid $default-color;
+      width: $circle-btn-size;
+      height: $circle-btn-size;
+      line-height: $circle-btn-size - 3px;
+      text-align: center;
+      border-radius: $circle-btn-size;
+      padding: 2px;
+    }
   }
   .bar {
     position: fixed;
     bottom: 0;
+    line-height: $bar-height;
     height: $bar-height;
     width: 100%;
-    background-color: #FFF;
+    background-color: $bar-color;
+    box-sizing: border-box;
+    border-top: 1px solid $default-border-color;
+
+    i.cart {
+      font-size: 30px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      &.full {
+        color: $default-color;
+      }
+      &.empty {
+        color: $bar-gray;
+      }
+    }
+    span.count {
+      position: absolute;
+      top: 16px;
+      left: 40px;
+      display: inline-block;
+      text-align: center;
+      font-size: $circle-span-size - 4px;
+      height: $circle-span-size;
+      min-width: $circle-span-size;
+      line-height: $circle-span-size;
+      border-radius: $circle-span-size;
+      &.full {
+        color: $default-color;
+        border: 1px solid $default-color;
+      }
+      &.empty {
+        color: $bar-gray;
+        border: 1px solid $bar-gray;
+      }
+    }
+
+    span.price {
+      position: absolute;
+      top: 14px;
+      left: 80px;
+      font-size: 24px;
+      line-height: 24px;
+      font-weight: bold;
+      &.full {
+        color: #333;
+      }
+      &.empty {
+        color: $bar-gray;
+      }
+    }
+    a.submit-btn {
+      position: absolute;
+      display: inline-block;
+      top:0;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      text-align: center;
+      color: #fff;
+      &.disable {
+        background-color: $bar-gray;
+      }
+      &.enable {
+        background-color: $default-color;
+      }
+    }
   }
 }
 

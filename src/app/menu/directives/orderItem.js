@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dian')
-  .directive('productItem', function() {
+  .directive('orderItem', function() {
     return {
       scope: {
         item: '=',

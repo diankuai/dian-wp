@@ -1,17 +1,7 @@
 'use strict';
 
-/* global config */
-
-/**
- * @ngdoc directive
- * @name dianApp.directive:imgKey
- * @description
- * # fetch img by img-key than put to child div
- * @example:
- */
-
 angular.module('dianApp')
-  .directive('imgKey', ['$timeout', 'config', function($timeout, config) {
+  .directive('qnImage', ['$timeout', 'config', function($timeout, config) {
     return {
       restrict: 'A',
       link: function(scope, element, attrs, ctrl) {

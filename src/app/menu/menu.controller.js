@@ -70,6 +70,17 @@ angular.module('dian')
 
       //table's openid
       var openid = $location.search().state || '';
+      $scope.table_openid = openid;
+
+      $http.get(config.apiUrl + '/wp/trade/get-cart-by-table/', {
+        params: {
+          openid: openid 
+        }
+      }).then(function(res) {
+        console.log(res.data);
+        $scope.cart = res.data;
+        utils.setTitle(res.data.restaurant_name);
+      });
 
       $http.get(config.apiUrl + '/wp/menu/list-menu-by-table/', {
         params: {
@@ -81,13 +92,13 @@ angular.module('dian')
         // $scope.menu.restaurant_name = 123;//for debug
       });
 
-      $http.get(config.apiUrl + '/wp/trade/get-cart-by-table/', {
+      // 根据餐桌openid获取在当前餐厅的订单
+      $http.get(config.apiUrl + '/wp/trade/list-current-order-by-table/', {
         params: {
           openid: openid 
         }
       }).then(function(res) {
-        console.log(res.data);
-        $scope.cart = res.data;
+        $scope.current_orders = res.data || [];
       });
 
       $scope.ui = {
@@ -138,6 +149,9 @@ angular.module('dian')
 
       $scope.submit = function() {
         var products_collection = angular.extend($scope.products_collection);
+        if (products_collection.length < 1) {
+          return;
+        };
         angular.forEach(products_collection, function(v) {
           angular.forEach(v, function(value, key, obj) {
             if (!obj.productid) {
@@ -170,6 +184,22 @@ angular.module('dian')
     }
   ])
 
+  .controller('MenuBuyCurrentCtrl', ['utils', 'weixin', 'config', '$scope', '$http', '$location', '$routeParams',
+    function(utils, weixin, config, $scope, $http, $location, $routeParams) {
+      utils.setTitle('当前餐厅');
+      var openid = $routeParams.table_openid;
+
+      $http.get(config.apiUrl + '/wp/trade/list-current-order-by-table/', {
+        params: {
+          openid: openid
+        }
+      }).then(function(res) {
+        $scope.current_orders = res.data || [];
+      });
+
+    }
+  ])
+
   .controller('MenuBuyConfirmCtrl', ['config', 'utils', '$scope', '$http', '$location', '$routeParams',
     function(config, utils, $scope, $http, $location, $routeParams) {
 
@@ -180,7 +210,8 @@ angular.module('dian')
           cart_id: cart_id
         }
       }).then(function(res) {
-        console.log(res.data);
+        utils.setTitle(res.data.restaurant_name);
+
         $scope.cart = res.data;
         cart_id = $scope.cart.id;
         $scope.products = utils.map($scope.cart.cart_items || [], function(v) {
