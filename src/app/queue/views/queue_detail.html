@@ -1,8 +1,8 @@
 <div class="main">
   <div class="block">
-    <div class="" ng-cloak>号码：{{item.queue_name}} {{item.queue_number}}</div>
-    <div class="" ng-cloak>时间：{{item.create_time|datetime}}</div>
-    <div class="" ng-cloak>当前 {{item.table_type.name}} 已叫到 {{item.current_registration||0}} 号</div>
+    <div class="">号码：<span>{{item.queue_name}}</span> <span>{{item.queue_number}}</span></div>
+    <div class="">时间：<span>{{item.create_time|datetime}}</span></div>
+    <div class="">当前 <span>{{item.table_type.name}}</span> 已叫到 <span>{{item.current_registration||0}}</span> 号</div>
   </div>
 
   <div class="block">
