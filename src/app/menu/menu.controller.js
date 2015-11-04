@@ -186,7 +186,6 @@ angular.module('dian')
 
   .controller('MenuBuyCurrentCtrl', ['utils', 'weixin', 'config', '$scope', '$http', '$location', '$routeParams',
     function(utils, weixin, config, $scope, $http, $location, $routeParams) {
-      utils.setTitle('当前餐厅');
       var openid = $routeParams.table_openid;
 
       $http.get(config.apiUrl + '/wp/trade/list-current-order-by-table/', {
@@ -194,6 +193,9 @@ angular.module('dian')
           openid: openid
         }
       }).then(function(res) {
+        if (res.data.length > 0) {
+          utils.setTitle(res.data[0].restaurant_name);
+        }
         $scope.current_orders = res.data || [];
       });
 
