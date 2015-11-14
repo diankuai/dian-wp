@@ -53,7 +53,7 @@
         'full': (products_collection.length>0),
         'empty': (products_collection.length<=0)
       }">
-      {{total_price}} 元
+      {{total_price | CHY}}
     </span>
     <a ng-click="submit()" href="javascript:;"
       ng-class="{

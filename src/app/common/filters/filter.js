@@ -19,7 +19,7 @@ angular.module('dian')
   .filter('CHY', [function() {
     return function(price) {
       var intoPrice;
-      return (angular.isNumber(intoPrice = price * 1.0) && intoPrice.toFixed(2) || 0) + '元';
+      return '￥' + (angular.isNumber(intoPrice = price * 1.0) && intoPrice.toFixed(1) || 0);
     };
   }])
   ;

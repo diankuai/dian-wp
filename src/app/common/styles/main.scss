@@ -99,6 +99,10 @@ a, button, input, label {
   color: $default-color;
 }
 
+.text-success {
+  color: $success-color;
+}
+
 .loading {
   position: absolute;
   top: 50%;
@@ -194,20 +198,26 @@ ul.list li {
 //   display: block;
 //   width: 100%;
 // }
-// 
-// //utils begin
-// .text-center {
-//   text-align: center!important;
-// }
-// .pull-right {
-//   float: right;
-// }
-// 
-// .pull-left {
-//   float: left;
-// }
-// 
-// //utils end
+
+//utils begin
+.text-center {
+  text-align: center!important;
+}
+.text-left {
+  text-align: left!important;
+}
+.text-right {
+  text-align: right!important;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+//utils end
+
 // 
 // //grid begin
 // .row {

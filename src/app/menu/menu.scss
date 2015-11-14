@@ -165,3 +165,22 @@ $bar-gray: #999;
   }
 }
 
+.status-info {
+  text-align: center;
+  font-size: 18px;
+}
+
+table.item-list {
+  width: 100%;
+  td.name {
+    font-weight: bold;
+  }
+  td.count {
+    width: 40px;
+    text-align: left;
+  }
+  td.price {
+    width: 60px;
+    text-align: right;
+  }
+}
