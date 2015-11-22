@@ -2,8 +2,12 @@
 
 angular.module('dian')
 
-  .controller('QueueCtrl', function (config, $scope, $http, utils, weixin) {
+  .controller('QueueCtrl', function (config, $scope, $http, utils, weixin, memberInfo) {
     utils.setTitle('排队');
+    memberInfo.then(function (res) {
+      $scope.member = res.data;
+      console.log($scope.member);
+    });
     $http.get(config.apiUrl + '/wp/registration/list-current-registration/')
     .then(function(res) {
       $scope.queue = res.data || [];
