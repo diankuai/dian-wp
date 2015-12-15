@@ -1,0 +1,12 @@
+<ks-swiper-container class="row photo-gallery" initial-slide="0" loop="false" show-nav-buttons="false" slides-per-view="1" space-between="0" pagination-clickable="false" on-ready="onSwiperReady(swiper)">
+  <ks-swiper-slide class="swiper-slide photo-item" ng-repeat="photo in photos">
+    <img class="photo" ng-src="http://api.randomuser.me/portraits/thumb/men/{{photo.id}}.jpg">
+    <div class="row photo-metas">
+      <div class="photo-name pull-left">餐厅或美食名称</div>
+      <div class="pull-right">
+        <img src="javascript:;" class="photo-publisher-avatar" alt="发布者头像">
+        <span class="photo-publisher-name">发布者</span>
+      </div>
+    </div>
+  </ks-swiper-slide>
+</ks-swiper-container>

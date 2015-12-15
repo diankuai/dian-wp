@@ -67,9 +67,15 @@ angular.module('dian')
 
   photos_liked = {};
   getPhotos();//先获取几张照片
-  $scope.photos = [{id: 1, alt: 123}, {alt: 456}, {alt: 123}, {alt: 123}, {alt: 123}];//for debug
+  $scope.photos = [{id: 1, alt: 123}, {id: 2, alt: 456}, {id: 3, alt: 123}, {id: 4, alt: 123}, {id: 5, alt: 123}];//for debug
   $scope.index = 0;
 
+  $scope.prev_photo = function() {
+    if ($scope.index > 0) {
+      $scope.index--;
+      console.log('switched to prev photo');
+    }
+  };
   $scope.next_photo = function() {
     var photos_length;
 

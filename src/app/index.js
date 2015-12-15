@@ -28,7 +28,7 @@ function setMemberIdToCookie(apiUrl) {
 //for dianApp code reuse, create a new module,
 angular.module('dianApp', []);
 
-angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
+angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp', 'ksSwiper'])
 
   .config(function ($routeProvider) {
     $routeProvider
@@ -96,7 +96,7 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
   //    * The workhorse; converts an object to x-www-form-urlencoded serialization.
   //    * @param {Object} obj
   //    * @return {String}
-  //    */ 
+  //    */
   //   var param = function(obj) {
   //     var query = '', name, value, fullSubName, subName, subValue, innerObj, i;
   //     for(name in obj) {
