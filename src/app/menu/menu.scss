@@ -174,7 +174,7 @@ $bar-gray: #999;
 table.item-list {
   width: 100%;
   td.name {
-    font-weight: bold;
+    // font-weight: bold;
   }
   td.count {
     width: 40px;
@@ -184,4 +184,10 @@ table.item-list {
     width: 60px;
     text-align: right;
   }
+}
+
+.total-price {
+  margin-top: 5px;
+  text-align: right;
+  font-weight: bold;
 }

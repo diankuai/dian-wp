@@ -49,12 +49,12 @@ angular.module('dian', ['ngCookies', 'ngTouch', 'ngRoute', 'dianApp'])
       function ($cookies, appConfig) {
     return {
       request: function (config) {
-        if (!$cookies.member_id) {
+        if (!$cookies.get('member_id')) {
           setMemberIdToCookie(appConfig.apiUrl);
         };
         config.headers = config.headers || {};
-        if ($cookies.member_id) {
-          config.headers['X-Member-Id'] = $cookies.member_id;
+        if ($cookies.get('member_id')) {
+          config.headers['X-Member-Id'] = $cookies.get('member_id');
         }
         return config;
       }
