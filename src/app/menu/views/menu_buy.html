@@ -24,7 +24,7 @@
         <li ng-repeat="product in category.products">
 
             <product-item item="product"></product-item>
-            <div class="">
+            <div class="product-count">
               <a href="javascript:;" class="circle-btn"
                 ng-click="change(product, -1)">-</a>
               <span>{{product.count || 0}}</span>

@@ -66,6 +66,7 @@ $bar-gray: #999;
         li {
           border-bottom: 1px solid $default-bg;
           position: relative;
+          padding-left: 10px;
           &:last-child {
             border-bottom: none;
           }
@@ -73,6 +74,17 @@ $bar-gray: #999;
             position: absolute;
             right: 0;
             top: 0;
+          }
+          .product-title {
+            line-height: 3em;
+          }
+          .product-price{
+            line-height: 3em;
+          }
+          .product-count{
+            position: absolute;
+            right: 100px;
+            top: 3em;
           }
         }
       }
